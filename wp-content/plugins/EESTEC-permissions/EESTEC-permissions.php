@@ -119,8 +119,8 @@ add_filter( 'user_has_cap', 'edit_events', 100, 3 );
 function edit_events($allcaps, $cap, $args)
 {	
 	global $current_user;
-	//if(array_key_exists('manage_options',$allcaps))//user is admin
-	//	return $allcaps;
+	if(array_key_exists('manage_options',$allcaps))//user is admin
+		return $allcaps;
 	
 	//print_r($cap);
 	//print_r($args);
