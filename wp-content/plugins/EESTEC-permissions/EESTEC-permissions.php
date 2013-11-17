@@ -138,10 +138,4 @@ function edit_events($allcaps, $cap, $args)
 	return $allcaps;
 }
 
-add_action( 'restrict_manage_posts','hide_other_events');
-function hide_other_events($test)
-{
-		print_r($test);
-}
-
 ?>
