@@ -69,12 +69,12 @@ get_header(); ?>
 									$lc = get_post_meta(get_the_id(),'organizer', 'true' );
 									
 									echo'-'.$lc.'-> linked: '.get_post_meta(get_the_id(),'lc', 'true' ).'</li></a>';
-									$lc=get_page_by_title($lc, 'OBJECT','lcs');
+									delete_post_meta(get_the_id(),'organizer', $lc); 
+									//$lc=get_page_by_title($lc, 'OBJECT','lcs');
 									//print_r($lc);
 									//echo $lc->ID;
-									update_post_meta(get_the_id(),'lc',$lc->ID);
-									//$term_list = wp_get_post_terms($post->ID, 'event_type', array("fields" => "all"));
-//print_r($term_list);
+									//update_post_meta(get_the_id(),'lc',$lc->ID);
+
 								}
 							}
 											
