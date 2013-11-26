@@ -339,6 +339,8 @@ function cimy_get_formatted_date($value, $date_format="%d %B %Y @%H:%M") {
 
 function cimy_dropDownOptions($values, $selected) {
 	
+	//if field = lcs then querry posts
+	
 	$label_pos = strpos($values, "/");
 	
 	if ($label_pos) {
@@ -349,28 +351,11 @@ function cimy_dropDownOptions($values, $selected) {
 		$label = "";
 	
 	$items = explode(",", $values);
-	
-	$lcs = Array();
-	
-	//lcs
-	// The Query
-
-	// The Query
-	$the_query = query_posts(array('post_type' => 'LCs'));
-
-	// The Loop
-	while ( have_posts() ) {
-		the_post();
-		array_push($lcs,get_the_title());
-	}
-	/* Restore original Post Data */
-	wp_reset_query();
-
 	$sel_items = explode(",", $selected);
 	$html_options = "";
 	$sel_i = 0;
 
-	foreach ($lcs as $item) {
+	foreach ($items as $item) {
 		$item_clean = trim($item, "\t\n\r");
 
 		$html_options.= "\n\t\t\t";
@@ -386,6 +371,55 @@ function cimy_dropDownOptions($values, $selected) {
 
 		$html_options.= ">".esc_html($item_clean)."</option>";
 	}
+
+	$ret = array();
+	$ret['html'] = $html_options;
+	$ret['label'] = cimy_uef_sanitize_content($label);
+	
+	return $ret;
+}
+
+
+function cimy_LCdropDownOptions($values, $selected) {	
+	//if field = lc then querry posts	
+		
+	$label_pos = strpos($values, "/");
+	
+	if ($label_pos) {
+		$label = substr($values, 0, $label_pos);
+		$values = substr($values, $label_pos + 1);
+	}
+	else
+		$label = "";
+	
+	$items = explode(",", $values);
+	
+
+	$sel_items = explode(",", $selected);
+	$html_options = "";
+	$sel_i = 0;
+
+	$the_query = new WP_Query(array('post_type' => 'LCs','posts_per_page'=>-1,'order'=>'asc','orderby'=>'title'));
+
+	while ( $the_query->have_posts() ) {
+	$the_query->the_post();
+	
+
+		$html_options.= "\n\t\t\t";
+		$html_options.= '<option value="'.get_the_ID().'"';
+
+		if (isset($sel_items[$sel_i])) {
+			$is_selected = selected(get_the_title(), $sel_items[$sel_i], false);
+			if (!empty($is_selected)) {
+				$sel_i++;
+				$html_options.= $is_selected;
+			}
+		}
+
+		$html_options.= ">".get_the_title()."</option>";
+	}
+	
+	wp_reset_query();
 
 	$ret = array();
 	$ret['html'] = $html_options;

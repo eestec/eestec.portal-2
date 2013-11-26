@@ -79,7 +79,7 @@ function edit_lcs($allcaps, $cap, $args)
 		
 		if($args[0]=='edit_post')
 		{
-		$lc=get_user_meta($current_user->ID,'lc',true);    //only members of the LC can edit the lc
+		$lc=get_cimyFieldValue($current_user->ID,'lc'); //only members of the LC can edit the lc
 		if($args[2]!=$lc)
 			$allcaps[$cap[0]] = false;
 			}}		
@@ -98,7 +98,7 @@ function edit_users($allcaps, $cap, $args)
 	//print_r($args);
 	
 	if($args[0]=='edit_user')
-	if(get_user_meta($args[2],'lc')!=get_user_meta($current_user->ID,'lc'))
+	if(get_cimyFieldValue($args[2],'lc')!=get_cimyFieldValue($current_user->ID,'lc'))
 		$allcaps['edit_users']=false;
 	return $allcaps;
 }
@@ -109,8 +109,8 @@ function link_event_to_lc($post_id)
 
 	if(get_post_type($post_id)=='events'){
 		print_r($post_id);
-		$meta_value=get_user_meta(get_current_user_id(),'lc',true);
-		add_post_meta($post_id,'lc', $meta_value,true);
+		$lc=get_cimyFieldValue($current_user->ID,'lc');
+		add_post_meta($post_id,'lc', $lc,true);
 		}	
 }
 
@@ -130,7 +130,7 @@ function edit_events($allcaps, $cap, $args)
 		
 		if($args[0]=='edit_post')
 		{
-		$lc=get_user_meta($current_user->ID,'lc',true);    //only members of the LC can edit the lc
+		$lc=get_cimyFieldValue($current_user->ID,'lc');    //only members of the LC can edit the lc
 		if( get_post_meta($args[2],'lc',true)!=$lc)
 			$allcaps[$cap[0]] = false;
 			}}		
