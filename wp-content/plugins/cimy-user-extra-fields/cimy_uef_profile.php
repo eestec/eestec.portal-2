@@ -217,7 +217,10 @@ function cimy_extract_ExtraFields() {
 				case "dropdown-multi":
 				case "dropdown":
 					// cimy_dropDownOptions uses cimy_uef_sanitize_content and esc_attr by itself
-					$ret = cimy_dropDownOptions($label, $non_escaped_value);
+					if($name=='LC')
+						$ret = cimy_LCdropDownOptions($label, $non_escaped_value);
+					else
+						$ret = cimy_dropDownOptions($label, $non_escaped_value);
 					$label = $ret['label'];
 					$html = $ret['html'];
 					$obj_label = '<label for="'.$unique_id.'">'.$label.$required.'</label>';

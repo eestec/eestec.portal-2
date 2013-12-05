@@ -904,7 +904,10 @@ function cimy_registration_form($errors=null, $show_type=0) {
 				case "dropdown":
 				case "dropdown-multi":
 					// cimy_dropDownOptions uses cimy_uef_sanitize_content and esc_attr by itself
-					$ret = cimy_dropDownOptions($label, $value);
+					if($name=='LC')
+						$ret = cimy_LCdropDownOptions($label, $non_escaped_value);
+					else
+						$ret = cimy_dropDownOptions($label, $non_escaped_value);
 					$label = $ret['label'];
 					$html = $ret['html'];
 
