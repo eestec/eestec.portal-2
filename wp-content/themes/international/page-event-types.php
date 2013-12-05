@@ -44,7 +44,7 @@ get_header(); ?>
 								echo "</br><dd>". $term->description . "</dd>"."</br></br>";
 									
 								}
-								echo "</ul>";
+								echo "</dl>";
 								}		
  
  						?>
