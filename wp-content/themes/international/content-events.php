@@ -63,11 +63,13 @@
         
         </td>
         </tr>
-        <?php /*<tr>
-        <th>Tip dogodka:</th>
+        
+
+        <tr>
+        <th>Event type:</th>
         <td>      
         <?php $eventType=reset(get_the_terms(get_the_ID(),'event_type'));?>
-		<a href="#event_type" rel="inline-800-280" rev="1" class="pirobox_gall1 last" title="Kaj je <?php echo $eventType->name;?>?">
+		<a href="event-types/#<?php echo $eventType->slug;?>" title="What is <?php echo $eventType->name;?>?">
 		<?php echo $eventType->name;?>
         </a>        
         <div id="event_type" style="display:none;">
@@ -77,7 +79,8 @@
         </div>        
         </td>
         </tr>
-        <tr>*/?>
+        <tr>
+
         <th>Date:</th>
         <td>
 		<?php print_date(get_field('start_date'))?> - <?php print_date(get_field('end_date'))?>
