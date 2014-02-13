@@ -42,9 +42,7 @@
 				<nav id="site-navigation" class="navigation main-navigation" role="navigation">
 					<h3 class="menu-toggle"><?php _e( 'Menu', 'international' ); ?></h3>
 					<a class="screen-reader-text skip-link" href="#content" title="<?php esc_attr_e( 'Skip to content', 'international' ); ?>"><?php _e( 'Skip to content', 'international' ); ?></a>
-					<?php 
-                                        $content_type = get_visitor_type();
-                                        wp_nav_menu( array( 'theme_location' => $content_type, 'menu_class' => 'nav-menu' ) ); ?>
+					<?php wp_nav_menu( array( 'theme_location' => 'homepage', 'menu_class' => 'nav-menu' ) ); ?>
 					<?php get_search_form(); ?>
 				</nav><!-- #site-navigation -->
 			</div><!-- #navbar -->

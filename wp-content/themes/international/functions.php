@@ -89,8 +89,13 @@ function international_setup() {
 		'aside', 'audio', 'chat', 'gallery', 'image', 'link', 'quote', 'status', 'video'
 	) );
 
-	// This theme uses wp_nav_menu() in one location.
-	register_nav_menu( 'primary', __( 'Navigation Menu', 'international' ) );
+	
+	register_nav_menu( 'default', __( 'Navigation Menu', 'international' ) );
+        
+        register_nav_menu( 'homepage', __( 'Homepage Menu', 'international' ) );
+        register_nav_menu( 'student', __( 'Homepage Menu', 'international' ) );
+        register_nav_menu( 'university', __( 'Homepage Menu', 'international' ) );
+        register_nav_menu( 'company', __( 'Homepage Menu', 'international' ) );
 
 	/*
 	 * This theme uses a custom image size for featured images, displayed on
@@ -224,7 +229,7 @@ add_filter( 'wp_title', 'international_wp_title', 10, 2 );
  */
 function international_widgets_init() {
 	register_sidebar( array(
-		'name'          => __( 'Main Widget Area', 'international' ),
+		'name'          => __( 'Footer Widget Area', 'international' ),
 		'id'            => 'sidebar-1',
 		'description'   => __( 'Appears in the footer section of the site.', 'international' ),
 		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
@@ -566,4 +571,24 @@ function remaining_time($time)
 	}}}
 		return $result;
 }
-	
+
+function get_root_parent_id( $page_id ) {
+	global $wpdb;
+	$parent = $wpdb->get_var( "SELECT post_parent FROM $wpdb->posts WHERE post_type='page' AND post_status='publish' AND ID = '$page_id'" );
+	if( $parent == 0 ) return $page_id;
+	else return get_root_parent_id( $parent );
+}
+
+
+//A function that when called, returns what kind of visitor/content is beeing displayed (company, sutdent, university, neutral)
+function get_visitor_type(){
+    global $post;
+    $page_id=get_root_parent_id($post->ID);
+    if($page_id == 3952)
+            return 'student';
+    if($page_id == 3954)
+            return 'university';
+    if($page_id == 3957)
+            return 'company';
+    return 'default';
+}
