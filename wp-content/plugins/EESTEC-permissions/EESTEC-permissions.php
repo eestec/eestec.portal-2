@@ -99,7 +99,11 @@ function edit_users($allcaps, $cap, $args)
 	
 	if($args[0]=='edit_user')
 	if(get_cimyFieldValue($args[2],'lc')!=get_cimyFieldValue($current_user->ID,'lc'))
+        {
 		$allcaps['edit_users']=false;
+                $allcaps['edit_user']=false;
+                
+        }
 	return $allcaps;
 }
 
@@ -137,5 +141,13 @@ function edit_events($allcaps, $cap, $args)
 			
 	return $allcaps;
 }
+
+add_action( 'admin_menu', 'remove_menus' );
+
+function remove_menus(){
+    if( !current_user_can( 'manage_options' ))
+        remove_menu_page( 'tools.php' );                  //Tools
+}
+  
 
 ?>
