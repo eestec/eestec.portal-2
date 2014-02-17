@@ -450,9 +450,11 @@ class Confirm_User_Registration
 		<h2 class="nav-tab-wrapper">
 			<a class="nav-tab <?php if ( 'pending' == $_GET['tab'] || !$_GET['tab']) echo 'nav-tab-active' ?>" href="users.php?page=confirm-user-registration&amp;tab=pending"><?php _e( 'Pending Users', 'confirm-user-registration' ); ?></a>
 			<a class="nav-tab <?php if ( 'authed' == $_GET['tab'] ) echo 'nav-tab-active' ?>" href="users.php?page=confirm-user-registration&amp;tab=authed"><?php _e( 'Authenticated Users', 'confirm-user-registration' ); ?></a>
-			<a class="nav-tab <?php if ( 'settings' == $_GET['tab'] ) echo 'nav-tab-active' ?>" href="users.php?page=confirm-user-registration&amp;tab=settings"><?php _e( 'Settings', 'confirm-user-registration' ); ?></a>
+			<?php if ( current_user_can( 'manage_options' ) ): ?>
+                        <a class="nav-tab <?php if ( 'settings' == $_GET['tab'] ) echo 'nav-tab-active' ?>" href="users.php?page=confirm-user-registration&amp;tab=settings"><?php _e( 'Settings', 'confirm-user-registration' ); ?></a>
 			<a class="nav-tab" href="https://github.com/Horttcore/confirm-user-registration" target="_blank"><?php _e( 'Help' ); ?></a>
-		</h2>
+                        <?php endif; ?>
+                </h2>
 		<?php
 	}
 
@@ -552,7 +554,8 @@ class Confirm_User_Registration
 					<tr>
 						<th id="cb"><input type="checkbox" name="check-all" valle="Check all"></th>
 						<th id="gravatar"><?php _e( 'Gravatar', 'confirm-user-registration' ); ?></th>
-						<th id="display_name"><?php _e( 'Name', 'confirm-user-registration' ); ?></th>
+						<th id="display_name"><?php _e( 'Name', 'confirm-user-registration' ); ?></th>                                                
+						<th id="lc"><?php _e( 'LC', 'confirm-user-registration' ); ?></th>
 						<th id="email"><?php _e( 'E-Mail', 'confirm-user-registration' ); ?></th>
 						<th id="role"><?php _e( 'Role', 'confirm-user-registration' ); ?></th>
 						<th id="registered"><?php _e( 'Registered', 'confirm-user-registration' ); ?></th>
@@ -566,13 +569,21 @@ class Confirm_User_Registration
 							$class = ( $i % 2 == 1 ) ? 'alternate' : 'default';
 							$user_data = get_userdata( $user->ID );
 							$user_registered = mysql2date(get_option('date_format'), $user->user_registered);
+                                                       
+                                                        
+                                                        if ( !current_user_can( 'edit_user',  $user->ID ) )
+                                                            continue;
+                                                        
 							?>
 							<tr id="user-<?php echo $user->ID ?>" class="<?php echo $class ?>">
 								<th>
-									<?php if ( $user->ID != $user_ID ) :?>
+									
+                                                                        <?php  
+                                                                        if ( $user->ID != $user_ID ) :?>
 										<input type="checkbox" name="users[]" value="<?php echo $user->ID ?>">
 									<?php endif; ?>
 								</th>
+                                                                
 								<td><img class="gravatar" src="http://www.gravatar.com/avatar/<?php echo md5( $user->user_email ) ?>?s=32"></td>
 								<td>
 									<a href="user-edit.php?user_id=<?php echo $user->ID ?>"><?php echo $user->display_name ?></a>
@@ -587,7 +598,14 @@ class Confirm_User_Registration
 											<span class="delete"><a href="<?php echo admin_url( 'users.php?action=delete&user=' . $user->ID . '&_wpnonce=' . wp_create_nonce( 'bulk-users' ) ) ?>"><?php _e( 'Delete' ); ?></a></span>
 										<?php endif; ?>
 									</div>
-								</td>
+								</td>                                                                
+								<td>
+                                                                    <?php 
+                                                                    $LC = get_cimyFieldValue($user->ID,'lc');
+                                                                    $LC = get_post($LC);
+                                                                    echo $LC ->post_title;
+                                                                    ?>
+                                                                </td>
 								<td><a href="mailto:<?php echo $user->user_email ?>"><?php echo $user->user_email ?></a></td>
 								<td>
 									<?php
