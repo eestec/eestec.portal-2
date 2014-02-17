@@ -65,8 +65,8 @@ function edit_lcs($allcaps, $cap, $args)
 	if(array_key_exists('manage_options',$allcaps))//user is admin
 		return $allcaps;
 		
-	//print_r($cap);
-	//print_r($args);
+	print_r($cap);
+	print_r($args);
 	
 	if(get_post_type()=='lcs'){		
 		if(current_user_has_role('intboard'))
@@ -76,13 +76,15 @@ function edit_lcs($allcaps, $cap, $args)
 		$allcaps['edit_lcss'] = false; //disable adding new lcs.
 		
 		
-		
-		if($args[0]=='edit_post')
-		{
-		$lc=get_cimyFieldValue($current_user->ID,'lc'); //only members of the LC can edit the lc
-		if($args[2]!=$lc)
-			$allcaps[$cap[0]] = false;
-			}}		
+		if(current_user_has_role('lcboard'))
+                    if($args[0]=='edit_post')
+                    {
+                    $lc=get_cimyFieldValue($current_user->ID,'lc'); //only members of the LC can edit the lc
+                    if($args[2]!=$lc)
+                            $allcaps[$cap[0]] = False;
+                    else
+                            $allcaps[$cap[0]] = True;
+                            }}	
 			
 	return $allcaps;
 }
