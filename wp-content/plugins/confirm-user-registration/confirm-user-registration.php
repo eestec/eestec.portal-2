@@ -36,9 +36,6 @@ define( 'RH_CUR_BASEDIR', dirname( plugin_basename(__FILE__) ) );
 */
 class Confirm_User_Registration
 {
-
-
-
 	/**
 	 *
 	 * Construct
@@ -136,8 +133,8 @@ class Confirm_User_Registration
 	 **/
 	public function admin_menu()
 	{
-		add_users_page( _x( 'Confirm User Registration', 'Menu title', 'confirm-user-registration' ), _x( 'Confirm User Registration', 'Page title', 'confirm-user-registration' ), 'promote_users', 'confirm-user-registration', array( $this, 'management' ) );
-	}
+		add_users_page( _x( 'Confirm User Registration', 'Menu title', 'confirm-user-registration' ), _x( 'Confirm User Registration', 'Page title', 'confirm-user-registration' ), 'edit_users', 'confirm-user-registration', array( $this, 'management' ) );
+        }
 
 
 
@@ -151,7 +148,7 @@ class Confirm_User_Registration
 	 **/
 	public function auth_users( array $user_ids )
 	{
-		if ( $user_ids && current_user_can( 'promote_users' ) ) :
+		if ( $user_ids && current_user_can( 'edit_users' ) ) :
 
 			foreach ( $user_ids as $user_id ) :
 
@@ -188,7 +185,7 @@ class Confirm_User_Registration
 	 **/
 	public function block_users( array $user_ids )
 	{
-		if ( $user_ids && current_user_can( 'promote_users' ) ) :
+		if ( $user_ids && current_user_can( 'edit_users' ) ) :
 
 			foreach ( $user_ids as $user_id ) :
 
