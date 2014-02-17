@@ -93,9 +93,9 @@ function international_setup() {
 	register_nav_menu( 'default', __( 'Navigation Menu', 'international' ) );
         
         register_nav_menu( 'homepage', __( 'Homepage Menu', 'international' ) );
-        register_nav_menu( 'student', __( 'Homepage Menu', 'international' ) );
-        register_nav_menu( 'university', __( 'Homepage Menu', 'international' ) );
-        register_nav_menu( 'company', __( 'Homepage Menu', 'international' ) );
+        register_nav_menu( 'student', __( 'Student Menu', 'international' ) );
+        register_nav_menu( 'university', __( 'University Menu', 'international' ) );
+        register_nav_menu( 'company', __( 'Company Menu', 'international' ) );
 
 	/*
 	 * This theme uses a custom image size for featured images, displayed on
