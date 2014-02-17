@@ -33,7 +33,7 @@ function cimy_admin_menu_custom() {
 		}
 		else {
 			$admin = add_options_page($cimy_uef_name, $cimy_uef_name, 'manage_options', "user_extra_fields", 'cimy_admin_define_extra_fields');
-			$aue_page = add_submenu_page('profile.php', __('Users Extended', $cimy_uef_domain), __('Users Extended', $cimy_uef_domain), 'list_users', "users_extended", 'cimy_admin_users_list_page');
+			$aue_page = add_submenu_page('profile.php', __('Users Extended', $cimy_uef_domain), __('Users Extended', $cimy_uef_domain), 'manage_options', "users_extended", 'cimy_admin_users_list_page');
 		}
 	}
 	if (!empty($aue_page))
