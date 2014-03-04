@@ -12,7 +12,7 @@ get_header('home'); ?>
 
 				<article id="homepage" >
 					<header class="entry-header">
-                                            <a href="/wp-login.php" title="Login or register to the site.">Login</a>
+                                            <?php wp_loginout(); ?>
                                             
                                             <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
                                             <input type="hidden" name="cmd" value="_donations">
@@ -42,6 +42,16 @@ get_header('home'); ?>
                                         <?php endwhile; ?> 
                                         </div>
                                             
+                                        <div class="news">
+                                        <?php
+                                        $the_query = new WP_Query('post_type=post&posts_per_page=4');
+                                        while ($the_query->have_posts()):
+                                        $the_query->the_post();
+                                        ?>  
+                                            <a class="<?php echo get_the_id();?>" href="<?php the_permalink();?>" title="<?php the_title()?>"><?php the_title();?></a>
+                                        <?php endwhile; ?>                                  
+                                        </div>
+                                                                                    
 					</div>
                                         
                                         <!-- .entry-content -->

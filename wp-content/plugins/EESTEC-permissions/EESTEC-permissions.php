@@ -65,8 +65,8 @@ function edit_lcs($allcaps, $cap, $args)
 	if(array_key_exists('manage_options',$allcaps))//user is admin
 		return $allcaps;
 		
-	print_r($cap);
-	print_r($args);
+	//print_r($cap);
+	//print_r($args);
 	
 	if(get_post_type()=='lcs'){		
 		if(current_user_has_role('intboard'))
@@ -78,13 +78,8 @@ function edit_lcs($allcaps, $cap, $args)
 		
 		if(current_user_has_role('lcboard'))
                     if($args[0]=='edit_post')
-                    {
-                    $lc=get_cimyFieldValue($current_user->ID,'lc'); //only members of the LC can edit the lc
-                    if($args[2]!=$lc)
-                            $allcaps[$cap[0]] = False;
-                    else
-                            $allcaps[$cap[0]] = True;
-                            }}	
+                    $allcaps[$cap[0]]= ($args[2]==get_cimyFieldValue($current_user->ID,'lc'));//only members of the LC can edit the lc                  
+                    }	
 			
 	return $allcaps;
 }
@@ -106,6 +101,8 @@ function edit_users($allcaps, $cap, $args)
                 $allcaps['edit_user']=false;
                 
         }
+        
+        
 	return $allcaps;
 }
 
@@ -134,13 +131,16 @@ function edit_events($allcaps, $cap, $args)
 	if(get_post_type()=='events'){     
 		$allcaps['delete_post'] = false;
 		
+                if(current_user_has_role('lcboard'))
 		if($args[0]=='edit_post')
 		{
 		$lc=get_cimyFieldValue($current_user->ID,'lc');    //only members of the LC can edit the lc
-		if( get_post_meta($args[2],'lc',true)!=$lc)
-			$allcaps[$cap[0]] = false;
-			}}		
-			
+                    if (get_post_meta($args[2],'lc',true)==$lc)
+                            $allcaps[$cap[0]] = true;
+                    else
+                        if(is_admin()) 
+                          $allcaps['read_post'] = False;
+                }}	
 	return $allcaps;
 }
 

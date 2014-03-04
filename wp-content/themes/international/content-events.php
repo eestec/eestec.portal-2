@@ -117,7 +117,7 @@
         </tr>
         <?php if(get_field('no_of_participants')): ?>
         <tr>
-        <th>Pparticipants:</th>
+        <th>Participants:</th>
         <td><?php the_field('no_of_participants')?></td>
         </tr>
         <?php endif;?>
@@ -129,7 +129,7 @@
         <?php endif;?>        
         <?php if(get_field('additional_info')): ?>
         <tr>
-        <th>Aditional info:</th>
+        <th>Additional info:</th>
         <td>
         <?php 
 		$contacts=explode("(,|\n)",get_field('additional_info'));
@@ -143,12 +143,11 @@
         <?php if($prijava):?>
         <tr>
         <th>Applications:</th>
-        <td><a href="<?php the_field('application_form')?>" class="button">Apply</a></td>
+        <td><?php the_application_permalink(get_the_id());?></td>
         </tr>
         <?php endif;?>
         </tbody>
         </table>
-        
 		<?php the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'international' ) ); ?>
 		<?php wp_link_pages( array( 'before' => '<div class="page-links"><span class="page-links-title">' . __( 'Pages:', 'international' ) . '</span>', 'after' => '</div>', 'link_before' => '<span>', 'link_after' => '</span>' ) ); ?>
 	</div><!-- .entry-content -->
