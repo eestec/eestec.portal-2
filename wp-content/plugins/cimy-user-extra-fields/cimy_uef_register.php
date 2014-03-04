@@ -453,6 +453,7 @@ function cimy_registration_check($user_login, $user_email, $errors) {
 					$value = $_FILES[$input_name]['name'];
 					$old_file = $from_profile && !empty($_POST[$input_name."_".$field_id."_prev_value"]) ? $_POST[$input_name."_".$field_id."_prev_value"] : '';
 					$del_old_file = $from_profile && !empty($_POST[$input_name."_del"]) ? $_POST[$input_name."_del"] : '';
+                                        //$old_file = "test";
 				}
 				else {
 					$file_size = 0;
@@ -460,6 +461,10 @@ function cimy_registration_check($user_login, $user_email, $errors) {
 					$value = "";
 					$old_file = $from_profile ? $_POST[$input_name."_".$field_id."_prev_value"] : '';
 					$del_old_file = $from_profile ? $_POST[$input_name."_del"] : '';
+                                        //$old_file = "test";
+                                        //print_r(get_defined_vars());
+                                        //print_r($input_name."_".$field_id."_prev_value");
+                                        
 				}
 			}
 
@@ -489,7 +494,7 @@ function cimy_registration_check($user_login, $user_email, $errors) {
 					// IF   1. it's a file type
 					// AND  2. there is an old one uploaded
 					// AND  3. this old one is not gonna be deleted
-					// THEN   do not throw the empty error.
+					// THEN   do not throw the empty error.                                        
 					if ((in_array($type, $cimy_uef_file_types)) && (!empty($old_file)) && (empty($del_old_file)))
 						$empty_error = false;
 
@@ -529,7 +534,14 @@ function cimy_registration_check($user_login, $user_email, $errors) {
 						$errors->add($unique_id, '<strong>'.__("ERROR", $cimy_uef_domain).'</strong>: '.$label.$equalmsg.'.');
 					}
 				}
-
+                                
+                                
+                                // IF   1. it's a file type
+                                // AND  2. there is an old one uploaded
+                                // AND  3. this old one is not gonna be deleted
+                                // THEN   do not walidate upload        
+                                if ((in_array($type, $cimy_uef_file_types)) && ((empty($old_file)) || (!empty($del_old_file))))
+                                {
 				// CHECK IF IT IS A REAL PICTURE
 				if (in_array($type, $cimy_uef_file_images_types)) {
 					$allowed_mime_types = get_allowed_mime_types();
@@ -555,9 +567,12 @@ function cimy_registration_check($user_login, $user_email, $errors) {
 				}
 
 				// MIN LEN
+                                    
+                                
 				if (isset($rules['min_length'])) {
 					$minlen = intval($rules['min_length']);
-
+                                        
+                                        
 					if (in_array($type, $cimy_uef_file_types)) {
 						if ($file_size < $minlen) {
 							$errors->add($unique_id, '<strong>'.__("ERROR", $cimy_uef_domain).'</strong>: '.$label.' '.__('couldn&#8217;t have size less than', $cimy_uef_domain).' '.$minlen.' KB.');
@@ -567,8 +582,10 @@ function cimy_registration_check($user_login, $user_email, $errors) {
 						if (cimy_strlen($value) < $minlen) {
 							$errors->add($unique_id, '<strong>'.__("ERROR", $cimy_uef_domain).'</strong>: '.$label.' '.__('couldn&#8217;t have length less than', $cimy_uef_domain).' '.$minlen.'.');
 						}
-					}
+					}                                        
 				}
+                                 
+                                 
 
 				// EXACT LEN
 				if (isset($rules['exact_length'])) {
@@ -601,6 +618,8 @@ function cimy_registration_check($user_login, $user_email, $errors) {
 						}
 					}
 				}
+                                }
+                                
 			}
 		}
 		$i++;
