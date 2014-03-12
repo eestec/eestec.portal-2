@@ -34,7 +34,7 @@ get_header('home'); ?>
                                         
                                         <div class="visitor_type">
                                         <?php
-                                        $the_query = new WP_Query( array( 'post_type' => 'page', 'post__in' => array( 3952,3954,3957 ) ) );
+                                        $the_query = new WP_Query( array( 'post_type' => 'page', 'post__in' => array( 3952,3957 ) ) );  //student or company page
                                         while ($the_query->have_posts()):
                                         $the_query->the_post();
                                         ?>  
