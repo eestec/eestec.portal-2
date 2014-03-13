@@ -6,13 +6,6 @@
  * theme as custom template tags. Others are attached to action and filter
  * hooks in WordPress to change core functionality.
  *
- * When using a child theme (see http://codex.wordpress.org/Theme_Development
- * and http://codex.wordpress.org/Child_Themes), you can override certain
- * functions (those wrapped in a function_exists() call) by defining them first
- * in your child theme's functions.php file. The child theme's functions.php
- * file is included before the parent theme's file, so the child theme
- * functions would be used.
- *
  * Functions that are not pluggable (not wrapped in function_exists()) are
  * instead attached to a filter or action hook.
  *
@@ -32,17 +25,6 @@ if ( ! isset( $content_width ) )
 	$content_width = 604;
 
 /**
- * Adds support for a custom header image.
- */
-require get_template_directory() . '/inc/custom-header.php';
-
-/**
- * International only works in WordPress 3.6 or later.
- */
-if ( version_compare( $GLOBALS['wp_version'], '3.6-alpha', '<' ) )
-	require get_template_directory() . '/inc/back-compat.php';
-
-/**
  * Sets up theme defaults and registers the various WordPress features that
  * International supports.
  *
@@ -58,33 +40,22 @@ if ( version_compare( $GLOBALS['wp_version'], '3.6-alpha', '<' ) )
  * @return void
  */
 function international_setup() {
-	/*
-	 * Makes International available for translation.
-	 *
-	 * Translations can be added to the /languages/ directory.
-	 * If you're building a theme based on International, use a find and
-	 * replace to change 'international' to the name of your theme in all
-	 * template files.
-	 */
-	load_theme_textdomain( 'international', get_template_directory() . '/languages' );
-
+    
 	/*
 	 * This theme styles the visual editor to resemble the theme style,
 	 * specifically font, colors, icons, and column width.
 	 */
-	add_editor_style( array( 'css/editor-style.css', 'fonts/genericons.css', international_fonts_url() ) );
+	
+        //add_editor_style( array( 'css/editor-style.css', 'fonts/genericons.css', international_fonts_url() ) );
 
 	// Adds RSS feed links to <head> for posts and comments.
 	add_theme_support( 'automatic-feed-links' );
-
-	// Switches default core markup for search form, comment form, and comments
-	// to output valid HTML5.
-	add_theme_support( 'html5', array( 'search-form', 'comment-form', 'comment-list' ) );
 
 	/*
 	 * This theme supports all available post formats by default.
 	 * See http://codex.wordpress.org/Post_Formats
 	 */
+        
 	add_theme_support( 'post-formats', array(
 		'aside', 'audio', 'chat', 'gallery', 'image', 'link', 'quote', 'status', 'video'
 	) );
@@ -94,7 +65,6 @@ function international_setup() {
         
         register_nav_menu( 'homepage', __( 'Homepage Menu', 'international' ) );
         register_nav_menu( 'student', __( 'Student Menu', 'international' ) );
-        register_nav_menu( 'university', __( 'University Menu', 'international' ) );
         register_nav_menu( 'company', __( 'Company Menu', 'international' ) );
 
 	/*
@@ -170,21 +140,14 @@ function international_scripts_styles() {
 	if ( is_active_sidebar( 'sidebar-1' ) )
 		wp_enqueue_script( 'jquery-masonry' );
 
-	// Loads JavaScript file with functionality specific to International.
-	wp_enqueue_script( 'international-script', get_template_directory_uri() . '/js/functions.js', array( 'jquery' ), '2013-07-18', true );
-
 	// Add Open Sans and Bitter fonts, used in the main stylesheet.
 	wp_enqueue_style( 'international-fonts', international_fonts_url(), array(), null );
 
 	// Add Genericons font, used in the main stylesheet.
-	wp_enqueue_style( 'genericons', get_template_directory_uri() . '/fonts/genericons.css', array(), '2.09' );
+	//wp_enqueue_style( 'genericons', get_template_directory_uri() . '/fonts/genericons.css', array(), '2.09' );
 
 	// Loads our main stylesheet.
 	wp_enqueue_style( 'international-style', get_stylesheet_uri(), array(), '2013-07-18' );
-
-	// Loads the Internet Explorer specific stylesheet.
-	wp_enqueue_style( 'international-ie', get_template_directory_uri() . '/css/ie.css', array( 'international-style' ), '2013-07-18' );
-	wp_style_add_data( 'international-ie', 'conditional', 'lt IE 9' );
 }
 add_action( 'wp_enqueue_scripts', 'international_scripts_styles' );
 
@@ -239,7 +202,7 @@ function international_widgets_init() {
 	) );
 
 	register_sidebar( array(
-		'name'          => __( 'Secondary Widget Area', 'international' ),
+		'name'          => 'Secondary Widget Area',
 		'id'            => 'sidebar-2',
 		'description'   => __( 'Appears on posts and pages in the sidebar.', 'international' ),
 		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
@@ -525,11 +488,6 @@ add_action( 'customize_register', 'international_customize_register' );
  *
  * @since International 1.0
  */
-function international_customize_preview_js() {
-	wp_enqueue_script( 'international-customizer', get_template_directory_uri() . '/js/theme-customizer.js', array( 'customize-preview' ), '20130226', true );
-}
-add_action( 'customize_preview_init', 'international_customize_preview_js' );
-
 
 date_default_timezone_set ('Europe/Ljubljana');
 function date_parse_timestamp($date)
