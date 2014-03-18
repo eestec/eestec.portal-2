@@ -2,7 +2,7 @@
 /**
  * The template for displaying introductory homepage
  */
-get_header('home'); ?>
+get_header(); ?>
 
 	<div id="primary" class="content-area">
 		<div id="content" class="site-content" role="main">
@@ -23,7 +23,7 @@ get_header('home'); ?>
                                             <input type="hidden" name="no_note" value="0">
                                             <input type="hidden" name="currency_code" value="EUR">
                                             <input type="hidden" name="bn" value="PP-DonationsBF:btn_donateCC_LG.gif:NonHostedGuest">
-                                            <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" name="submit" alt="PayPal - The safer, easier way to pay online!">
+                                            <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif"  name="submit" alt="PayPal - The safer, easier way to pay online!">
                                             <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
                                             </form>
 

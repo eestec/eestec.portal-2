@@ -18,13 +18,6 @@
  */
 
 /**
- * Sets up the content width value based on the theme's design.
- * @see international_content_width() for template-specific adjustments.
- */
-if ( ! isset( $content_width ) )
-	$content_width = 604;
-
-/**
  * Sets up theme defaults and registers the various WordPress features that
  * International supports.
  *
@@ -79,6 +72,7 @@ function international_setup() {
 }
 add_action( 'after_setup_theme', 'international_setup' );
 
+
 /**
  * Returns the Google font stylesheet URL, if available.
  *
@@ -131,23 +125,21 @@ function international_fonts_url() {
  * @return void
  */
 function international_scripts_styles() {
-	// Adds JavaScript to pages with the comment form to support sites with
-	// threaded comments (when in use).
-	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) )
-		wp_enqueue_script( 'comment-reply' );
-
-	// Adds Masonry to handle vertical alignment of footer widgets.
-	if ( is_active_sidebar( 'sidebar-1' ) )
-		wp_enqueue_script( 'jquery-masonry' );
-
 	// Add Open Sans and Bitter fonts, used in the main stylesheet.
-	wp_enqueue_style( 'international-fonts', international_fonts_url(), array(), null );
+	//wp_enqueue_style( 'international-fonts', international_fonts_url(), array(), null );
 
 	// Add Genericons font, used in the main stylesheet.
 	//wp_enqueue_style( 'genericons', get_template_directory_uri() . '/fonts/genericons.css', array(), '2.09' );
 
 	// Loads our main stylesheet.
-	wp_enqueue_style( 'international-style', get_stylesheet_uri(), array(), '2013-07-18' );
+	wp_enqueue_style( 'international-style', get_stylesheet_uri(), array(), '2014-03-14' );
+        
+        //include the jquery
+        wp_register_script('jquery', "http" . ($_SERVER['SERVER_PORT'] == 443 ? "s" : "") . "://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js", false, null);
+        wp_enqueue_script('jquery');
+        
+        // Load bootstrap javascript
+        wp_enqueue_script( 'script-name', get_template_directory_uri() . '/bootstrap/js/bootstrap.js', array(), '1.0.0', true );
 }
 add_action( 'wp_enqueue_scripts', 'international_scripts_styles' );
 
@@ -185,8 +177,6 @@ add_filter( 'wp_title', 'international_wp_title', 10, 2 );
 
 /**
  * Registers two widget areas.
- *
- * @since International 1.0
  *
  * @return void
  */
@@ -451,23 +441,6 @@ function international_body_class( $classes ) {
 add_filter( 'body_class', 'international_body_class' );
 
 /**
- * Adjusts content_width value for video post formats and attachment templates.
- *
- * @since International 1.0
- *
- * @return void
- */
-function international_content_width() {
-	global $content_width;
-
-	if ( is_attachment() )
-		$content_width = 724;
-	elseif ( has_post_format( 'audio' ) )
-		$content_width = 484;
-}
-add_action( 'template_redirect', 'international_content_width' );
-
-/**
  * Add postMessage support for site title and description for the Customizer.
  *
  * @since International 1.0
@@ -496,13 +469,14 @@ function date_parse_timestamp($date)
 	return mktime(23,59, 59, $date['month'], $date['day'], $date['year']);
 }
 
-
+//Function for general date priting use
 function print_date($date)
 {
 	$timestamp = date_parse_timestamp($date);
 	echo date('d.m.Y', $timestamp);
 }
 
+//A function used to calculate the remaining time until deadline
 function remaining_time($time)
 {
 	$result='';
@@ -530,6 +504,8 @@ function remaining_time($time)
 		return $result;
 }
 
+
+// Function for getting the root parrent of a page
 function get_root_parent_id( $page_id ) {
 	global $wpdb;
 	$parent = $wpdb->get_var( "SELECT post_parent FROM $wpdb->posts WHERE post_type='page' AND post_status='publish' AND ID = '$page_id'" );
@@ -544,9 +520,7 @@ function get_visitor_type(){
     $page_id=get_root_parent_id($post->ID);
     if($page_id == 3952)
             return 'student';
-    if($page_id == 3954)
-            return 'university';
     if($page_id == 3957)
             return 'company';
-    return 'default';
+    return 'homepage';
 }
