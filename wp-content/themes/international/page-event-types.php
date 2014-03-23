@@ -40,7 +40,7 @@ get_header(); ?>
  								if ( $count > 0 ){
 								echo "<dl>";
 								foreach ( $terms as $term ) {
-								echo "<dt>" . $term->name . "</dt>";
+								echo "<dt id='". $term->slug ."'>" . $term->name . "</dt>";
 								echo "</br><dd>". $term->description . "</dd>"."</br></br>";
 									
 								}
