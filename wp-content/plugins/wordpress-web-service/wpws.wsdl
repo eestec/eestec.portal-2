@@ -261,7 +261,7 @@
 	<wsdl:service name="WordPressWebService">
 		<wsdl:port name="WordPressWebServiceHttpSoapEndpoint"
 			binding="impl:WordPressWebServiceSoapBinding">
-			<wsdlsoap:address location="http://international.eestec-lj.org/index.php?/wpws" />
+			<wsdlsoap:address location="http://localhost/international//index.php?/wpws" />
 		</wsdl:port>
 	</wsdl:service>
 </wsdl:definitions>

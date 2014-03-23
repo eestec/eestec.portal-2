@@ -5,8 +5,13 @@ if( basename(__FILE__) == basename($_SERVER['SCRIPT_FILENAME']) )
 require_once( dirname(__FILE__).'/admin_ui_lib_rs.php' );
 
 class ScoperProfileUI {
+    
 
 	function display_ui_user_roles($user, $groups_only = false) {
+                     
+                if ( !current_user_can('manage_options') ) //hide the rolescoper from normal users
+                    return False;
+                
 		global $scoper;
 
 		$blog_roles = array();
@@ -132,7 +137,7 @@ class ScoperProfileUI {
 				}
 			} // end foreach content date range
 		} // end foreach role duration date range
-	
+                
 		
 		$disable_role_admin = false;
 		
@@ -421,3 +426,4 @@ class ScoperProfileUI {
 	}
 	
 } // end class ScoperProfileUI
+                 

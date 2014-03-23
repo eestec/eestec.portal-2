@@ -6,13 +6,6 @@
  * theme as custom template tags. Others are attached to action and filter
  * hooks in WordPress to change core functionality.
  *
- * When using a child theme (see http://codex.wordpress.org/Theme_Development
- * and http://codex.wordpress.org/Child_Themes), you can override certain
- * functions (those wrapped in a function_exists() call) by defining them first
- * in your child theme's functions.php file. The child theme's functions.php
- * file is included before the parent theme's file, so the child theme
- * functions would be used.
- *
  * Functions that are not pluggable (not wrapped in function_exists()) are
  * instead attached to a filter or action hook.
  *
@@ -23,24 +16,6 @@
  * @subpackage International
  * @since International 1.0
  */
-
-/**
- * Sets up the content width value based on the theme's design.
- * @see international_content_width() for template-specific adjustments.
- */
-if ( ! isset( $content_width ) )
-	$content_width = 604;
-
-/**
- * Adds support for a custom header image.
- */
-require get_template_directory() . '/inc/custom-header.php';
-
-/**
- * International only works in WordPress 3.6 or later.
- */
-if ( version_compare( $GLOBALS['wp_version'], '3.6-alpha', '<' ) )
-	require get_template_directory() . '/inc/back-compat.php';
 
 /**
  * Sets up theme defaults and registers the various WordPress features that
@@ -58,39 +33,32 @@ if ( version_compare( $GLOBALS['wp_version'], '3.6-alpha', '<' ) )
  * @return void
  */
 function international_setup() {
-	/*
-	 * Makes International available for translation.
-	 *
-	 * Translations can be added to the /languages/ directory.
-	 * If you're building a theme based on International, use a find and
-	 * replace to change 'international' to the name of your theme in all
-	 * template files.
-	 */
-	load_theme_textdomain( 'international', get_template_directory() . '/languages' );
-
+    
 	/*
 	 * This theme styles the visual editor to resemble the theme style,
 	 * specifically font, colors, icons, and column width.
 	 */
-	add_editor_style( array( 'css/editor-style.css', 'fonts/genericons.css', international_fonts_url() ) );
+	
+        //add_editor_style( array( 'css/editor-style.css', 'fonts/genericons.css', international_fonts_url() ) );
 
 	// Adds RSS feed links to <head> for posts and comments.
 	add_theme_support( 'automatic-feed-links' );
-
-	// Switches default core markup for search form, comment form, and comments
-	// to output valid HTML5.
-	add_theme_support( 'html5', array( 'search-form', 'comment-form', 'comment-list' ) );
 
 	/*
 	 * This theme supports all available post formats by default.
 	 * See http://codex.wordpress.org/Post_Formats
 	 */
+        
 	add_theme_support( 'post-formats', array(
 		'aside', 'audio', 'chat', 'gallery', 'image', 'link', 'quote', 'status', 'video'
 	) );
 
-	// This theme uses wp_nav_menu() in one location.
-	register_nav_menu( 'primary', __( 'Navigation Menu', 'international' ) );
+	
+	register_nav_menu( 'default', __( 'Navigation Menu', 'international' ) );
+        
+        register_nav_menu( 'homepage', __( 'Homepage Menu', 'international' ) );
+        register_nav_menu( 'student', __( 'Student Menu', 'international' ) );
+        register_nav_menu( 'company', __( 'Company Menu', 'international' ) );
 
 	/*
 	 * This theme uses a custom image size for featured images, displayed on
@@ -103,6 +71,7 @@ function international_setup() {
 	add_filter( 'use_default_gallery_style', '__return_false' );
 }
 add_action( 'after_setup_theme', 'international_setup' );
+
 
 /**
  * Returns the Google font stylesheet URL, if available.
@@ -156,30 +125,21 @@ function international_fonts_url() {
  * @return void
  */
 function international_scripts_styles() {
-	// Adds JavaScript to pages with the comment form to support sites with
-	// threaded comments (when in use).
-	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) )
-		wp_enqueue_script( 'comment-reply' );
-
-	// Adds Masonry to handle vertical alignment of footer widgets.
-	if ( is_active_sidebar( 'sidebar-1' ) )
-		wp_enqueue_script( 'jquery-masonry' );
-
-	// Loads JavaScript file with functionality specific to International.
-	wp_enqueue_script( 'international-script', get_template_directory_uri() . '/js/functions.js', array( 'jquery' ), '2013-07-18', true );
-
 	// Add Open Sans and Bitter fonts, used in the main stylesheet.
-	wp_enqueue_style( 'international-fonts', international_fonts_url(), array(), null );
+	//wp_enqueue_style( 'international-fonts', international_fonts_url(), array(), null );
 
 	// Add Genericons font, used in the main stylesheet.
-	wp_enqueue_style( 'genericons', get_template_directory_uri() . '/fonts/genericons.css', array(), '2.09' );
+	//wp_enqueue_style( 'genericons', get_template_directory_uri() . '/fonts/genericons.css', array(), '2.09' );
 
 	// Loads our main stylesheet.
-	wp_enqueue_style( 'international-style', get_stylesheet_uri(), array(), '2013-07-18' );
-
-	// Loads the Internet Explorer specific stylesheet.
-	wp_enqueue_style( 'international-ie', get_template_directory_uri() . '/css/ie.css', array( 'international-style' ), '2013-07-18' );
-	wp_style_add_data( 'international-ie', 'conditional', 'lt IE 9' );
+	wp_enqueue_style( 'international-style', get_stylesheet_uri(), array(), '2014-03-14' );
+        
+        //include the jquery
+        wp_register_script('jquery', "http" . ($_SERVER['SERVER_PORT'] == 443 ? "s" : "") . "://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js", false, null);
+        wp_enqueue_script('jquery');
+        
+        // Load bootstrap javascript
+        wp_enqueue_script( 'script-name', get_template_directory_uri() . '/bootstrap/js/bootstrap.js', array(), '1.0.0', true );
 }
 add_action( 'wp_enqueue_scripts', 'international_scripts_styles' );
 
@@ -218,13 +178,11 @@ add_filter( 'wp_title', 'international_wp_title', 10, 2 );
 /**
  * Registers two widget areas.
  *
- * @since International 1.0
- *
  * @return void
  */
 function international_widgets_init() {
 	register_sidebar( array(
-		'name'          => __( 'Main Widget Area', 'international' ),
+		'name'          => __( 'Footer Widget Area', 'international' ),
 		'id'            => 'sidebar-1',
 		'description'   => __( 'Appears in the footer section of the site.', 'international' ),
 		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
@@ -234,7 +192,7 @@ function international_widgets_init() {
 	) );
 
 	register_sidebar( array(
-		'name'          => __( 'Secondary Widget Area', 'international' ),
+		'name'          => 'Secondary Widget Area',
 		'id'            => 'sidebar-2',
 		'description'   => __( 'Appears on posts and pages in the sidebar.', 'international' ),
 		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
@@ -483,23 +441,6 @@ function international_body_class( $classes ) {
 add_filter( 'body_class', 'international_body_class' );
 
 /**
- * Adjusts content_width value for video post formats and attachment templates.
- *
- * @since International 1.0
- *
- * @return void
- */
-function international_content_width() {
-	global $content_width;
-
-	if ( is_attachment() )
-		$content_width = 724;
-	elseif ( has_post_format( 'audio' ) )
-		$content_width = 484;
-}
-add_action( 'template_redirect', 'international_content_width' );
-
-/**
  * Add postMessage support for site title and description for the Customizer.
  *
  * @since International 1.0
@@ -520,11 +461,6 @@ add_action( 'customize_register', 'international_customize_register' );
  *
  * @since International 1.0
  */
-function international_customize_preview_js() {
-	wp_enqueue_script( 'international-customizer', get_template_directory_uri() . '/js/theme-customizer.js', array( 'customize-preview' ), '20130226', true );
-}
-add_action( 'customize_preview_init', 'international_customize_preview_js' );
-
 
 date_default_timezone_set ('Europe/Ljubljana');
 function date_parse_timestamp($date)
@@ -533,13 +469,14 @@ function date_parse_timestamp($date)
 	return mktime(23,59, 59, $date['month'], $date['day'], $date['year']);
 }
 
-
+//Function for general date priting use
 function print_date($date)
 {
 	$timestamp = date_parse_timestamp($date);
 	echo date('d.m.Y', $timestamp);
 }
 
+//A function used to calculate the remaining time until deadline
 function remaining_time($time)
 {
 	$result='';
@@ -566,4 +503,24 @@ function remaining_time($time)
 	}}}
 		return $result;
 }
-	
+
+
+// Function for getting the root parrent of a page
+function get_root_parent_id( $page_id ) {
+	global $wpdb;
+	$parent = $wpdb->get_var( "SELECT post_parent FROM $wpdb->posts WHERE post_type='page' AND post_status='publish' AND ID = '$page_id'" );
+	if( $parent == 0 ) return $page_id;
+	else return get_root_parent_id( $parent );
+}
+
+
+//A function that when called, returns what kind of visitor/content is beeing displayed (company, sutdent, university, neutral)
+function get_visitor_type(){
+    global $post;
+    $page_id=get_root_parent_id($post->ID);
+    if($page_id == 3952)
+            return 'student';
+    if($page_id == 3957)
+            return 'company';
+    return 'homepage';
+}

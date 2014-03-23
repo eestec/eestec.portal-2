@@ -104,7 +104,7 @@ function get_application_permalink($event_id)
 	if($now>$ref)//checking if the application deadline has passed
 		return false;
 				
-	$event = get_post($event_id);	
+	$event = get_post($event_id);
 	if(user_can_apply($event_id))
 		return get_bloginfo('url').'/wp-admin/post-new.php?post_type=applications&event='.$event_id;
 	else if(get_application($event_id)){
@@ -187,7 +187,9 @@ function applications_list_filter( $query ){
 
 add_filter( 'user_has_cap', 'add_application', 100, 3 );
 function add_application($allcaps, $cap, $args)
-{	
+{
+        //print_r($cap);
+	//print_r($args);
 	global $current_user;
 		
 	if(get_post_type()=='applications')
@@ -234,10 +236,12 @@ function link_application_to_event($post_id)
 //put the event of the aplication on the application edit screen.
 add_action( 'edit_form_after_title', 'event_name_of_application' );
 function event_name_of_application() {
-	
+        if(get_post_type($post_id)=='applications')
+	{
 	$event = get_post(get_post_meta(get_the_ID(),'event',true));
 		
     echo '<h1>'.$event->post_title.' application</h1>';
+        }
 }
 
 ?>
