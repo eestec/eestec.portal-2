@@ -32,6 +32,29 @@
  *
  * @return void
  */
+require_once('wp_bootstrap_navwalker.php');
+// custom menu example @ http://digwp.com/2011/11/html-formatting-custom-menus/
+function clean_custom_menus() {
+	$menu_name = 'nav-primary'; // specify custom menu slug
+	if (($locations = get_nav_menu_locations()) && isset($locations[$menu_name])) {
+		$menu = wp_get_nav_menu_object($locations[$menu_name]);
+		$menu_items = wp_get_nav_menu_items($menu->term_id);
+
+		
+		$menu_list .= "\t\t\t\t". '<ul class="nav">' ."\n";
+		foreach ((array) $menu_items as $key => $menu_item) {
+			$title = $menu_item->title;
+			$url = $menu_item->url;
+			$menu_list .= "\t\t\t\t\t". '<li><a href="'. $url .'">'. $title .'</a></li>' ."\n";
+		}
+		$menu_list .= "\t\t\t\t". '</ul>' ."\n";
+		
+	} else {
+		// $menu_list = '<!-- no list defined -->';
+	}
+	echo $menu_list;
+}
+
 function international_setup() {
     
 	/*
@@ -71,7 +94,6 @@ function international_setup() {
 	add_filter( 'use_default_gallery_style', '__return_false' );
 }
 add_action( 'after_setup_theme', 'international_setup' );
-
 
 /**
  * Returns the Google font stylesheet URL, if available.
@@ -135,11 +157,12 @@ function international_scripts_styles() {
 	wp_enqueue_style( 'international-style', get_stylesheet_uri(), array(), '2014-03-14' );
         
         //include the jquery
-        wp_register_script('jquery', "http" . ($_SERVER['SERVER_PORT'] == 443 ? "s" : "") . "://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js", false, null);
-        wp_enqueue_script('jquery');
+        wp_deregister_script('jquery');
+   		wp_register_script('jquery', "http" . ($_SERVER['SERVER_PORT'] == 443 ? "s" : "") . "://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js", false, '1.11.0');
+   		wp_enqueue_script('jquery');
         
         // Load bootstrap javascript
-        wp_enqueue_script( 'script-name', get_template_directory_uri() . '/bootstrap/js/bootstrap.js', array(), '1.0.0', true );
+        wp_enqueue_script( 'bootstrap', get_template_directory_uri() . '/bootstrap/js/bootstrap.js', array('jquery'), '1.0.0', true );
 }
 add_action( 'wp_enqueue_scripts', 'international_scripts_styles' );
 

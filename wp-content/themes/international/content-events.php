@@ -69,6 +69,7 @@
         <th>Event type:</th>
         <td>      
         <?php $eventType=reset(get_the_terms(get_the_ID(),'event_type'));?>
+		<a href="event-types/#<?php echo $eventType->name;?>"  title="What is <?php echo $eventType->name;?>?">
 		<a href="event-types/#<?php echo $eventType->slug;?>" title="What is <?php echo $eventType->name;?>?">
 		<?php echo $eventType->name;?>
         </a>        
