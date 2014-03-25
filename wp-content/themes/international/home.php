@@ -12,8 +12,8 @@ get_header(); ?>
 
 				<article id="homepage" >
 					<header class="entry-header">
-                                            <?php wp_loginout(); ?>
                                             
+                                            <br>Like our idea?
                                             <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
                                             <input type="hidden" name="cmd" value="_donations">
                                             <input type="hidden" name="business" value="treasurer@eestec.net">
@@ -23,7 +23,9 @@ get_header(); ?>
                                             <input type="hidden" name="no_note" value="0">
                                             <input type="hidden" name="currency_code" value="EUR">
                                             <input type="hidden" name="bn" value="PP-DonationsBF:btn_donateCC_LG.gif:NonHostedGuest">
-                                            <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif"  name="submit" alt="PayPal - The safer, easier way to pay online!">
+                                            
+                                                <input type="button" class="btn btn-default btn-lg" name="submit" value="Donate">
+                                            
                                             <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
                                             </form>
 
