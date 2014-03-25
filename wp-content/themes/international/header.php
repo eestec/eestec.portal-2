@@ -51,7 +51,7 @@
 					        <!-- .nav, .navbar-search, .navbar-form, etc -->
 					        <?php /* Primary navigation */
 							wp_nav_menu( array(
-							  'menu' => 'top_menu',
+							  'menu' => 'homepage',
 							  'depth' => 2,
 							  'container' => false,
 							  'menu_class' => 'nav',
