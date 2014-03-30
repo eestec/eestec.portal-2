@@ -41,23 +41,41 @@ get_header(); ?>
                                         $the_query->the_post();
                                         ?>  
                                             <a class="<?php echo get_the_id();?>" href="<?php the_permalink();?>" title="<?php the_title()?>"><?php the_title();?></a>
-                                        <?php endwhile; ?> 
+                                            <?php endwhile; ?> 
                                         </div>
                                             
                                         <div class="news">
+                                            <ul class="slides">
                                         <?php
-                                        $the_query = new WP_Query('post_type=post&posts_per_page=4');
+                                        $the_query = new WP_Query('post_type=post&posts_per_page=6');
                                         while ($the_query->have_posts()):
                                         $the_query->the_post();
                                         ?>  
-                                            <a class="<?php echo get_the_id();?>" href="<?php the_permalink();?>" title="<?php the_title()?>"><?php the_title();?></a>
-                                        <?php endwhile; ?>                                  
+                                            <li>
+                                                <?php the_post_thumbnail();?>
+                                            <a class="post <?php echo get_the_id();?>" href="<?php the_permalink();?>" title="<?php the_title()?>"><?php the_title();?></a>
+                                            <span> <?php the_date(); ?> </span>
+                                            <p><?php echo the_excerpt();?></p>
+                                            </li>
+                                        <?php endwhile; ?>
+                                            
+                                            </ul>
+                                            
+                                            <div>                                               
+                                                <h3>Other top stories</h3>
+                                                <ul>
+                                                    <li>Story1</li>
+                                                    <li>Story2</li>
+                                                    <li>Story3</li>
+                                                </ul>
+                                            </div>
                                         </div>
                                                                                     
 					</div>
-                                        
+                                        <div class="partners">
+                                            
+                                        </div>
                                         <!-- .entry-content -->
-
 				</article><!-- #post -->
 			<?php //endwhile; ?>
 
