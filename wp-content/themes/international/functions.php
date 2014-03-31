@@ -75,13 +75,12 @@ function international_setup() {
 	add_theme_support( 'post-formats', array(
 		'aside', 'audio', 'chat', 'gallery', 'image', 'link', 'quote', 'status', 'video'
 	) );
-
-	
-	register_nav_menu( 'default', __( 'Navigation Menu', 'international' ) );
         
-        register_nav_menu( 'homepage', __( 'Homepage Menu', 'international' ) );
-        register_nav_menu( 'student', __( 'Student Menu', 'international' ) );
-        register_nav_menu( 'company', __( 'Company Menu', 'international' ) );
+        register_nav_menu( 'default', 'Default', 'international' );
+        register_nav_menu( 'homepage', 'Homepage Menu', 'international' );
+        register_nav_menu( 'student', 'Student Menu', 'international' );
+        register_nav_menu( 'company', 'Company Menu', 'international' );        
+        register_nav_menu( 'sitemap', 'Sitemap', 'international' );
 
 	/*
 	 * This theme uses a custom image size for featured images, displayed on
