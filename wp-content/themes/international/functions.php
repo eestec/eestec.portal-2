@@ -440,6 +440,14 @@ add_action( 'customize_register', 'international_customize_register' );
  * @since International 1.0
  */
 
+// Replaces the excerpt "more" text by a link
+function new_excerpt_more($more) {
+       global $post;
+	return '<a class="moretag" href="'. get_permalink($post->ID) . '"> ...More>></a>';
+}
+add_filter('excerpt_more', 'new_excerpt_more');
+
+
 date_default_timezone_set ('Europe/Ljubljana');
 function date_parse_timestamp($date)
 {
