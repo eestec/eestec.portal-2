@@ -89,9 +89,8 @@ register_post_type('Applications', $args);
 //hiding application post type from the admin menu (except for the admin)
 add_action( 'admin_menu', 'hide_applications');
 function hide_applications()
-{	
-    if(!current_user_can( 'administrator' ))// for testing purposes the admins can see it in the menu.
-		remove_menu_page( 'edit.php?post_type=applications' );
+{
+    remove_menu_page( 'edit.php?post_type=applications' );
 }
 
 //by passing the event ID, the function returs a "create new application", "edit existing application" URL or false.
@@ -222,15 +221,17 @@ function custom_application_columns( $column, $post_id ) {
             echo '<a href="'.get_edit_post_link().'">Details</a>'; //we need some kind of noedit view implemented
             break;
         case 'accept':
-             echo '<form name="acceptApplication" method="post" action="" >
-                 <input type="hidden" name="acceptApplication" value="true"/>
+             echo '</form><form name="acceptApplication" method="post" action="" >
+                 <input type="hidden" name="acceptApplication" value="true"/>                 
+                 <input type="hidden" name="event" value="'.$_GET['event'].'"/>
                  <input type="hidden" name="applicationid" id="applicationid" value="'.get_the_id().'" />
                  <input type="checkbox" onclick="this.form.submit();" />
              </form>';
             break;
         case 'deny':
-             echo '<form name="denyApplication" method="post" action="" >
-                 <input type="hidden" name="denyApplication" value="true"/>
+             echo '</form><form name="denyApplication" method="post" action="" >
+                 <input type="hidden" name="denyApplication" value="true"/>               
+                 <input type="hidden" name="event" value="'.$_GET['event'].'"/>
                  <input type="hidden" name="applicationid" id="applicationid" value="'.get_the_id().'" />
                  <input type="checkbox" onclick="this.form.submit();" />
              </form>';
@@ -243,13 +244,15 @@ add_action( 'views_edit-applications', 'applications_handle' );
 function applications_handle( $views )
 {
     if(isset($_POST['acceptApplication']))
-        add_post_meta($_POST['applicationid'], 'status', 'accepted');
+    {
+       update_post_meta($_POST['applicationid'], 'status', 'accepted');
+       email_notification($_POST['applicationid']);
+    }
     
     if(isset($_POST['denyApplication']))
-        delete_post_meta($_POST['applicationid'], 'status');
-    
-    
+        update_post_meta($_POST['applicationid'], 'status','pending');     
 }
+
 //additional tabs on the list and removing default ones
 add_action( 'views_edit-applications', 'remove_edit_post_views' );
 function remove_edit_post_views( $views ) {
@@ -390,7 +393,7 @@ function link_application_to_event($post_id)
 		//writing the event ID of the application to the application meta
 		add_post_meta($post_id,'event',$_GET['event'],true);
                 //seting the applications as pending
-                add_post_meta($post_id,'status','pending');
+                add_post_meta($post_id,'status','pending',true);
 		}	
 }
 
@@ -403,6 +406,29 @@ function event_name_of_application() {
 		
     echo '<h1>'.$event->post_title.' application</h1>';
         }
+}
+
+
+function email_notification($application_id) //a function for sending email notifications on applications status change.
+{
+    $to = get_post($application_id)->post_author;
+    $to = get_the_author_meta('user_email', $to);
+    
+    $event = get_post(get_post_meta($application_id,'event'))->title;
+    $headers = 'From: EESTEC international <noreply@eestec.com>' . "\r\n";
+    
+    if(get_post_meta($application_id,'status')=='accepted')
+    {
+        $message = 'We are happy to inform you that your application to event "'.$event.'" has been accepted.'
+                . ' If you have any questions or need additional information please don\'t hesitate to ask the contact person of the organizer LC. '
+                . 'The CP-s email address is:';
+        wp_mail( $to,'Event application accepted!', $message, $headers);
+    }
+    /*
+    if(get_post_meta($application_id,'status')=='pending')
+    {
+        wp_mail( $to, $subject, $message, $headers, $attachments );
+    }*/
 }
 
 ?>
