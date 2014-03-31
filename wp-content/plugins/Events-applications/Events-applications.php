@@ -182,7 +182,167 @@ function applications_list_filter( $query ){
 		else
         $query->query_vars['meta_value'] = $_GET['event'];
     }
+    
 }
+
+/* additional colums on the applications list */
+add_filter( 'manage_edit-applications_columns', 'list_applications_columns' );
+function list_applications_columns($old_columns) {
+    /*
+    unset( $columns['title'] );
+    unset( $columns['author'] );
+    unset( $columns['date'] );
+    */
+    
+    //$columns['cb'] = 'Accept';
+    if($_GET['status']=='accepted')
+        $columns['deny'] = 'Deny';
+    else        
+        $columns['accept'] = 'Accept';
+    $columns['details'] = 'Application';
+    $columns['name'] = 'Name';
+    //$columns['author'] = 'Username';    
+    $columns['lc'] = 'LC';    
+    $columns['Priority'] = 'Priority';
+
+    return $columns;
+}
+
+add_action( 'manage_applications_posts_custom_column' , 'custom_application_columns', 10, 2 );
+function custom_application_columns( $column, $post_id ) {
+    switch ( $column ) {      
+        case 'name' :  // printing the candidates full name
+            echo  get_the_author_meta('first_name').' '.get_the_author_meta('last_name');            
+            break;
+        case 'lc' : // printing the candidates LC
+            echo get_the_title(get_the_author_meta('lc')); //random bug  
+            break;
+        case 'details' : // printing the candidates LC
+            //echo '<a href="'.get_permalink().'">Details</a>'; 
+            echo '<a href="'.get_edit_post_link().'">Details</a>'; //we need some kind of noedit view implemented
+            break;
+        case 'accept':
+             echo '<form name="acceptApplication" method="post" action="" >
+                 <input type="hidden" name="acceptApplication" value="true"/>
+                 <input type="hidden" name="applicationid" id="applicationid" value="'.get_the_id().'" />
+                 <input type="checkbox" onclick="this.form.submit();" />
+             </form>';
+            break;
+        case 'deny':
+             echo '<form name="denyApplication" method="post" action="" >
+                 <input type="hidden" name="denyApplication" value="true"/>
+                 <input type="hidden" name="applicationid" id="applicationid" value="'.get_the_id().'" />
+                 <input type="checkbox" onclick="this.form.submit();" />
+             </form>';
+            break;
+    }
+}
+
+//accepting/denying of the applications via submited form data
+add_action( 'views_edit-applications', 'applications_handle' );
+function applications_handle( $views )
+{
+    if(isset($_POST['acceptApplication']))
+        add_post_meta($_POST['applicationid'], 'status', 'accepted');
+    
+    if(isset($_POST['denyApplication']))
+        delete_post_meta($_POST['applicationid'], 'status');
+    
+    
+}
+//additional tabs on the list and removing default ones
+add_action( 'views_edit-applications', 'remove_edit_post_views' );
+function remove_edit_post_views( $views ) {
+    
+    unset($views['all']);
+    unset($views['draft']);
+    unset($views['publish']);    
+    
+    // count the unaccepted applications
+    $args = array(
+        'post_type' => 'applications',
+        'showposts' => -1,
+	'meta_query' => array(
+            array(
+		'key'     => 'event',
+		'value'   => $_GET['event'],
+		'compare' => '='
+                ),
+            array(
+		'key'     => 'status',
+		'value'   => 'pending',
+		'compare' => '='
+                )
+	)
+    );
+    $query = new WP_Query($args);     
+    $views['pending'] = '<a href="edit.php?post_type=applications&event='.$_GET['event'].'">Pending <span class="count">('.$query->post_count.')</span></a>'; //could and numbers
+
+    //count the accepted applications
+    $args = array(
+        'post_type' => 'applications',
+        'showposts' => -1,
+	'meta_query' => array(
+            array(
+		'key'     => 'event',
+		'value'   => $_GET['event'],
+		'compare' => '='
+                ),
+            array(
+		'key'     => 'status',
+		'value'   => 'accepted',
+		'compare' => '='
+                )
+	)
+    );    
+    $query = new WP_Query($args);    
+    $views['accepted'] = '<a href="edit.php?post_type=applications&event='.$_GET['event'].'&status=accepted">Accepted <span class="count">('.$query->post_count.')</span></a>';
+    return $views;
+}
+
+
+add_action('pre_get_posts', 'my_special_list');
+function my_special_list( $q ) {
+  if(is_admin()){
+  $scr = get_current_screen();
+  if ( ( $scr->base === 'edit' ) && $q->is_main_query() ) {
+    // To target only a post type uncomment following line and adjust post type name
+    if ( $scr->post_type !== 'applications' ) return;
+    // if you change the link in function above adjust next line accordingly
+    $pre = filter_input(INPUT_GET, 'status', FILTER_SANITIZE_STRING);
+    if ( $pre === 'status' ) {
+      $meta_query = array( 'key' => 'is_special', 'value' => 'yes', );
+      $q->set( 'meta_query', array($meta_query) ); //correction here
+    }
+  }}
+}
+
+//filtering the posts on pending/accepted applications
+add_filter( 'pre_get_posts', 'accepted_denied_applications_filter' );
+function accepted_denied_applications_filter( $query ){
+    global $pagenow;
+    $type = 'post';
+    if (isset($_GET['post_type'])) {
+        $type = $_GET['post_type'];
+    }
+    if ( 'applications' == $type && is_admin() && $pagenow=='edit.php' && $query->is_main_query()) {        
+        if(isset($_GET['status']) && $_GET['status']=='accepted')
+        {            
+            $query->query_vars['meta_key'] = 'status';
+            $query->query_vars['meta_value'] = 'accepted';
+        }
+        else
+        {
+            $query->query_vars['meta_key'] = 'status';
+            $query->query_vars['meta_value'] = 'pending';
+        } 
+        
+    }
+}
+
+//removing bulk list actions
+add_filter( 'bulk_actions-' . 'edit-applications', '__return_empty_array' );
+
 
 
 add_filter( 'user_has_cap', 'add_application', 100, 3 );
@@ -214,7 +374,7 @@ function add_application($allcaps, $cap, $args)
 				$allcaps['publish_posts']=false;				
 				$allcaps['edit_posts']=false;
 			}
-		}*/		
+		}*/	
 		}		
 			
 	return $allcaps;
@@ -229,9 +389,10 @@ function link_application_to_event($post_id)
 	{
 		//writing the event ID of the application to the application meta
 		add_post_meta($post_id,'event',$_GET['event'],true);
+                //seting the applications as pending
+                add_post_meta($post_id,'status','pending');
 		}	
 }
-
 
 //put the event of the aplication on the application edit screen.
 add_action( 'edit_form_after_title', 'event_name_of_application' );
