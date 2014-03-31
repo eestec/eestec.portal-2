@@ -8,7 +8,7 @@
 # Site info: multisite=0
 # Site info: end
 #
-# Generated: Monday 31. March 2014 18:47 CEST
+# Generated: Monday 31. March 2014 19:57 CEST
 # Hostname: localhost
 # Database: `eestecportal2`
 # --------------------------------------------------------
@@ -19,7 +19,7 @@
 /*!40101 SET foreign_key_checks = 0 */;
 
 # Table: `wp_options`
-# Approximate rows expected in table: 1389
+# Approximate rows expected in table: 2017
 
 # Delete any existing table `wp_options`
 
@@ -34,7 +34,7 @@ CREATE TABLE `wp_options` (
   `autoload` varchar(20) NOT NULL DEFAULT 'yes',
   PRIMARY KEY (`option_id`),
   UNIQUE KEY `option_name` (`option_name`)
-) ENGINE=InnoDB AUTO_INCREMENT=12584 DEFAULT CHARSET=utf8 ;
+) ENGINE=InnoDB AUTO_INCREMENT=12587 DEFAULT CHARSET=utf8 ;
 
 # Data contents of table `wp_options`
 
@@ -137,7 +137,7 @@ INSERT INTO `wp_options` VALUES (1, 'siteurl', 'http://international.eestec-lj.o
  (96, 'widget_archives', 'a:1:{s:12:"_multiwidget";i:1;}', 'yes'),
  (97, 'widget_meta', 'a:1:{s:12:"_multiwidget";i:1;}', 'yes'),
  (98, 'sidebars_widgets', 'a:4:{s:19:"wp_inactive_widgets";a:0:{}s:9:"sidebar-1";a:0:{}s:9:"sidebar-2";a:0:{}s:13:"array_version";i:3;}', 'yes'),
- (99, 'cron', 'a:6:{i:1396284775;a:1:{s:21:"updraft_backup_resume";a:1:{s:32:"fc494c74107b383ff1c6e61cdca11399";a:2:{s:8:"schedule";b:0;s:4:"args";a:2:{i:0;i:1;i:1;s:12:"4cf48479d643";}}}}i:1396288214;a:1:{s:30:"wp_scheduled_auto_draft_delete";a:1:{s:32:"40cd750bba9870f18aada2478b24840a";a:3:{s:8:"schedule";s:5:"daily";s:4:"args";a:0:{}s:8:"interval";i:86400;}}}i:1396325532;a:2:{s:16:"wp_version_check";a:1:{s:32:"40cd750bba9870f18aada2478b24840a";a:3:{s:8:"schedule";s:10:"twicedaily";s:4:"args";a:0:{}s:8:"interval";i:43200;}}s:17:"wp_update_plugins";a:1:{s:32:"40cd750bba9870f18aada2478b24840a";a:3:{s:8:"schedule";s:10:"twicedaily";s:4:"args";a:0:{}s:8:"interval";i:43200;}}}i:1396325533;a:1:{s:16:"wp_update_themes";a:1:{s:32:"40cd750bba9870f18aada2478b24840a";a:3:{s:8:"schedule";s:10:"twicedaily";s:4:"args";a:0:{}s:8:"interval";i:43200;}}}i:1396325625;a:1:{s:19:"wp_scheduled_delete";a:1:{s:32:"40cd750bba9870f18aada2478b24840a";a:3:{s:8:"schedule";s:5:"daily";s:4:"args";a:0:{}s:8:"interval";i:86400;}}}s:7:"version";i:2;}', 'yes'),
+ (99, 'cron', 'a:6:{i:1396288970;a:1:{s:21:"updraft_backup_resume";a:1:{s:32:"80e3439728c95961a0c96e73b852f6c1";a:2:{s:8:"schedule";b:0;s:4:"args";a:2:{i:0;i:1;i:1;s:12:"b02025da1282";}}}}i:1396325532;a:2:{s:16:"wp_version_check";a:1:{s:32:"40cd750bba9870f18aada2478b24840a";a:3:{s:8:"schedule";s:10:"twicedaily";s:4:"args";a:0:{}s:8:"interval";i:43200;}}s:17:"wp_update_plugins";a:1:{s:32:"40cd750bba9870f18aada2478b24840a";a:3:{s:8:"schedule";s:10:"twicedaily";s:4:"args";a:0:{}s:8:"interval";i:43200;}}}i:1396325533;a:1:{s:16:"wp_update_themes";a:1:{s:32:"40cd750bba9870f18aada2478b24840a";a:3:{s:8:"schedule";s:10:"twicedaily";s:4:"args";a:0:{}s:8:"interval";i:43200;}}}i:1396325625;a:1:{s:19:"wp_scheduled_delete";a:1:{s:32:"40cd750bba9870f18aada2478b24840a";a:3:{s:8:"schedule";s:5:"daily";s:4:"args";a:0:{}s:8:"interval";i:86400;}}}i:1396374614;a:1:{s:30:"wp_scheduled_auto_draft_delete";a:1:{s:32:"40cd750bba9870f18aada2478b24840a";a:3:{s:8:"schedule";s:5:"daily";s:4:"args";a:0:{}s:8:"interval";i:86400;}}}s:7:"version";i:2;}', 'yes'),
  (101, '_transient_random_seed', 'cf5edbdfd054e014bbbacd9d6ddb2a6e', 'yes'),
  (102, '_site_transient_update_core', 'O:8:"stdClass":3:{s:7:"updates";a:1:{i:0;O:8:"stdClass":9:{s:8:"response";s:7:"upgrade";s:8:"download";s:40:"http://wordpress.org/wordpress-3.8.1.zip";s:6:"locale";s:5:"en_US";s:8:"packages";O:8:"stdClass":4:{s:4:"full";s:40:"http://wordpress.org/wordpress-3.8.1.zip";s:10:"no_content";s:51:"http://wordpress.org/wordpress-3.8.1-no-content.zip";s:11:"new_bundled";s:52:"http://wordpress.org/wordpress-3.8.1-new-bundled.zip";s:7:"partial";b:0;}s:7:"current";s:5:"3.8.1";s:11:"php_version";s:5:"5.2.4";s:13:"mysql_version";s:3:"5.0";s:11:"new_bundled";s:3:"3.8";s:15:"partial_version";s:0:"";}}s:12:"last_checked";i:1396282342;s:15:"version_checked";s:5:"3.6.1";}', 'yes'),
  (103, 'auth_key', '<=fhe:3D>.%%4l 2fdR4_ql^i`^=7wK^@{i6f96<SxBEnU;1@k/9o!otcWxl[?T)', 'yes'),
@@ -197,7 +197,7 @@ INSERT INTO `wp_options` VALUES (1, 'siteurl', 'http://international.eestec-lj.o
  (1176, 'usernoise__thankyou_title', 'Thank you', 'yes'),
  (1177, 'usernoise__thankyou_text', 'Your feedback has been received.', 'yes'),
  (1178, 'usernoise__admin_notify_on_feedback', '1', 'yes'),
- (1209, 'scoper_file_htaccess_date', '1395591205', 'no'),
+ (1209, 'scoper_file_htaccess_date', '1396278137', 'no'),
  (1446, 'jsonpress-settings', 'a:4:{s:11:"site_domain";s:27:"international.eestec-lj.org";s:10:"api_domain";s:32:"json.international.eestec-lj.org";s:15:"exclude_columns";s:225:"ping_status\r\npost_password       \r\nto_ping\r\npinged\r\npost_content_filtered\r\nfilter\r\nguid\r\npost_date_gmt\r\npost_modified_gmt\r\npost_status\r\ncomment_status\r\npost_name\r\npost_parent\r\nmenu_order\r\npost_type\r\npost_modified\r\npost_author";s:13:"exclude_query";s:95:"query_vars\r\nrequest\r\ntax_query\r\nmeta_query\r\nqueried_object\r\npost\r\ncurrent_post\r\ncurrent_comment";}', 'yes'),
  (1758, 'json_api_controllers', 'core,posts,respond,widgets', 'yes'),
  (1832, '_site_transient_timeout_browser_deb1176d36c19ae8ea953d3afa2ab7a4', '1382039972', 'yes'),
@@ -298,12 +298,12 @@ INSERT INTO `wp_options` VALUES (1, 'siteurl', 'http://international.eestec-lj.o
  (6824, 'updraft_starttime_db', '04:38', 'yes'),
  (6825, 'updraft_startday_files', '0', 'yes'),
  (6826, 'updraft_startday_db', '0', 'yes'),
- (6840, 'updraft_lastmessage', 'Table wp_options: Total expected rows (approximate): 1389 (Mar 31 16:47:55)', 'yes'),
+ (6840, 'updraft_lastmessage', 'Table wp_options: Total expected rows (approximate): 2017 (Mar 31 17:57:50)', 'yes'),
  (6845, 'updraftplus_unlocked_fd', '1', 'yes'),
  (6846, 'updraftplus_last_lock_time_fd', '2013-11-07 10:43:15', 'yes'),
  (6847, 'updraftplus_semaphore_fd', '0', 'yes'),
- (6851, 'updraft_backup_history', 'a:8:{i:1396284223;a:5:{s:2:"db";s:62:"backup_2014-03-31-1643_EESTEC_international_b0b4c09c1b44-db.gz";s:7:"db-size";i:529386;s:9:"checksums";a:1:{s:4:"sha1";a:1:{s:3:"db0";s:40:"b5b3c206a51836644e999b90ac8c67ce3aecfc02";}}s:5:"nonce";s:12:"b0b4c09c1b44";s:7:"service";a:1:{i:0;s:4:"none";}}i:1396167166;a:5:{s:2:"db";s:62:"backup_2014-03-30-0812_EESTEC_international_3f087d0f99fd-db.gz";s:7:"db-size";i:530604;s:9:"checksums";a:1:{s:4:"sha1";a:1:{s:3:"db0";s:40:"8b6474d0ac03aae968adb477b695befbdcdc3a10";}}s:5:"nonce";s:12:"3f087d0f99fd";s:7:"service";a:1:{i:0;s:4:"none";}}i:1395960735;a:5:{s:2:"db";s:62:"backup_2014-03-27-2252_EESTEC_international_e8468a7e0153-db.gz";s:7:"db-size";i:525088;s:9:"checksums";a:1:{s:4:"sha1";a:1:{s:3:"db0";s:40:"f67c6165adf9be3065887e9af7c897ee21e0e2fd";}}s:5:"nonce";s:12:"e8468a7e0153";s:7:"service";a:1:{i:0;s:4:"none";}}i:1395595557;a:5:{s:2:"db";s:62:"backup_2014-03-23-1725_EESTEC_international_dce5bda78ce5-db.gz";s:7:"db-size";i:531916;s:9:"checksums";a:1:{s:4:"sha1";a:1:{s:3:"db0";s:40:"73d0649375b5f8fbd61ae277523bcc0b7eaa6e81";}}s:5:"nonce";s:12:"dce5bda78ce5";s:7:"service";a:1:{i:0;s:4:"none";}}i:1395567918;a:5:{s:2:"db";s:62:"backup_2014-03-23-0945_EESTEC_international_4f014d177f1a-db.gz";s:7:"db-size";i:530079;s:9:"checksums";a:1:{s:4:"sha1";a:1:{s:3:"db0";s:40:"ed35b65d88af3e7efb7822fcede8f6786719265b";}}s:5:"nonce";s:12:"4f014d177f1a";s:7:"service";a:1:{i:0;s:4:"none";}}i:1395113641;a:5:{s:2:"db";s:62:"backup_2014-03-18-0334_EESTEC_international_db7ae61f88da-db.gz";s:7:"db-size";i:547318;s:9:"checksums";a:1:{s:4:"sha1";a:1:{s:3:"db0";s:40:"d0a653349829204d104473c26a7aacbacdc102e6";}}s:5:"nonce";s:12:"db7ae61f88da";s:7:"service";a:1:{i:0;s:4:"none";}}i:1393990593;a:5:{s:2:"db";s:62:"backup_2014-03-05-0336_EESTEC_international_d3193c648b3a-db.gz";s:7:"db-size";i:525407;s:9:"checksums";a:1:{s:4:"sha1";a:1:{s:3:"db0";s:40:"26f79f3018d30bf608b9faf8ebba7033f12647a7";}}s:5:"nonce";s:12:"d3193c648b3a";s:7:"service";a:1:{i:0;s:4:"none";}}i:1383820995;a:12:{s:7:"plugins";a:1:{i:0;s:68:"backup_2013-11-07-1043_EESTEC_international_26a84a390708-plugins.zip";}s:12:"plugins-size";i:11137677;s:6:"themes";a:1:{i:0;s:67:"backup_2013-11-07-1043_EESTEC_international_26a84a390708-themes.zip";}s:11:"themes-size";i:256986;s:7:"uploads";a:1:{i:0;s:68:"backup_2013-11-07-1043_EESTEC_international_26a84a390708-uploads.zip";}s:12:"uploads-size";i:81748;s:6:"others";a:1:{i:0;s:67:"backup_2013-11-07-1043_EESTEC_international_26a84a390708-others.zip";}s:11:"others-size";i:517;s:7:"db-size";i:414466;s:9:"checksums";a:1:{s:4:"sha1";a:5:{s:8:"plugins0";s:40:"26990b8ab3fb6fc2af1b6a17c1197c518e36d92e";s:7:"themes0";s:40:"ee6ecd12f5f0c627b9cd4ca68b850523ddc00edc";s:8:"uploads0";s:40:"4599b54256733a36cb2b1566dfa50cb29e0e4fd9";s:7:"others0";s:40:"2547bbbfd50e35577cb404cf4a20c12e7e93a53b";s:3:"db0";s:40:"c2bd296bdc2ca1435d81255a247bb1a64f4d1d71";}}s:5:"nonce";s:12:"26a84a390708";s:7:"service";a:1:{i:0;s:4:"none";}}}', 'yes'),
- (6852, 'updraft_last_backup', 'a:5:{s:11:"backup_time";i:1396284223;s:12:"backup_array";a:3:{s:2:"db";s:62:"backup_2014-03-31-1643_EESTEC_international_b0b4c09c1b44-db.gz";s:7:"db-size";i:529386;s:9:"checksums";a:1:{s:4:"sha1";a:1:{s:3:"db0";s:40:"b5b3c206a51836644e999b90ac8c67ce3aecfc02";}}}s:7:"success";i:1;s:6:"errors";a:0:{}s:12:"backup_nonce";s:12:"b0b4c09c1b44";}', 'yes'),
+ (6851, 'updraft_backup_history', 'a:9:{i:1396284475;a:5:{s:2:"db";s:62:"backup_2014-03-31-1647_EESTEC_international_4cf48479d643-db.gz";s:7:"db-size";i:529031;s:9:"checksums";a:1:{s:4:"sha1";a:1:{s:3:"db0";s:40:"48c01ff640d039e7395b2f6aeda57d4a7685435c";}}s:5:"nonce";s:12:"4cf48479d643";s:7:"service";a:1:{i:0;s:4:"none";}}i:1396284223;a:5:{s:2:"db";s:62:"backup_2014-03-31-1643_EESTEC_international_b0b4c09c1b44-db.gz";s:7:"db-size";i:529386;s:9:"checksums";a:1:{s:4:"sha1";a:1:{s:3:"db0";s:40:"b5b3c206a51836644e999b90ac8c67ce3aecfc02";}}s:5:"nonce";s:12:"b0b4c09c1b44";s:7:"service";a:1:{i:0;s:4:"none";}}i:1396167166;a:5:{s:2:"db";s:62:"backup_2014-03-30-0812_EESTEC_international_3f087d0f99fd-db.gz";s:7:"db-size";i:530604;s:9:"checksums";a:1:{s:4:"sha1";a:1:{s:3:"db0";s:40:"8b6474d0ac03aae968adb477b695befbdcdc3a10";}}s:5:"nonce";s:12:"3f087d0f99fd";s:7:"service";a:1:{i:0;s:4:"none";}}i:1395960735;a:5:{s:2:"db";s:62:"backup_2014-03-27-2252_EESTEC_international_e8468a7e0153-db.gz";s:7:"db-size";i:525088;s:9:"checksums";a:1:{s:4:"sha1";a:1:{s:3:"db0";s:40:"f67c6165adf9be3065887e9af7c897ee21e0e2fd";}}s:5:"nonce";s:12:"e8468a7e0153";s:7:"service";a:1:{i:0;s:4:"none";}}i:1395595557;a:5:{s:2:"db";s:62:"backup_2014-03-23-1725_EESTEC_international_dce5bda78ce5-db.gz";s:7:"db-size";i:531916;s:9:"checksums";a:1:{s:4:"sha1";a:1:{s:3:"db0";s:40:"73d0649375b5f8fbd61ae277523bcc0b7eaa6e81";}}s:5:"nonce";s:12:"dce5bda78ce5";s:7:"service";a:1:{i:0;s:4:"none";}}i:1395567918;a:5:{s:2:"db";s:62:"backup_2014-03-23-0945_EESTEC_international_4f014d177f1a-db.gz";s:7:"db-size";i:530079;s:9:"checksums";a:1:{s:4:"sha1";a:1:{s:3:"db0";s:40:"ed35b65d88af3e7efb7822fcede8f6786719265b";}}s:5:"nonce";s:12:"4f014d177f1a";s:7:"service";a:1:{i:0;s:4:"none";}}i:1395113641;a:5:{s:2:"db";s:62:"backup_2014-03-18-0334_EESTEC_international_db7ae61f88da-db.gz";s:7:"db-size";i:547318;s:9:"checksums";a:1:{s:4:"sha1";a:1:{s:3:"db0";s:40:"d0a653349829204d104473c26a7aacbacdc102e6";}}s:5:"nonce";s:12:"db7ae61f88da";s:7:"service";a:1:{i:0;s:4:"none";}}i:1393990593;a:5:{s:2:"db";s:62:"backup_2014-03-05-0336_EESTEC_international_d3193c648b3a-db.gz";s:7:"db-size";i:525407;s:9:"checksums";a:1:{s:4:"sha1";a:1:{s:3:"db0";s:40:"26f79f3018d30bf608b9faf8ebba7033f12647a7";}}s:5:"nonce";s:12:"d3193c648b3a";s:7:"service";a:1:{i:0;s:4:"none";}}i:1383820995;a:12:{s:7:"plugins";a:1:{i:0;s:68:"backup_2013-11-07-1043_EESTEC_international_26a84a390708-plugins.zip";}s:12:"plugins-size";i:11137677;s:6:"themes";a:1:{i:0;s:67:"backup_2013-11-07-1043_EESTEC_international_26a84a390708-themes.zip";}s:11:"themes-size";i:256986;s:7:"uploads";a:1:{i:0;s:68:"backup_2013-11-07-1043_EESTEC_international_26a84a390708-uploads.zip";}s:12:"uploads-size";i:81748;s:6:"others";a:1:{i:0;s:67:"backup_2013-11-07-1043_EESTEC_international_26a84a390708-others.zip";}s:11:"others-size";i:517;s:7:"db-size";i:414466;s:9:"checksums";a:1:{s:4:"sha1";a:5:{s:8:"plugins0";s:40:"26990b8ab3fb6fc2af1b6a17c1197c518e36d92e";s:7:"themes0";s:40:"ee6ecd12f5f0c627b9cd4ca68b850523ddc00edc";s:8:"uploads0";s:40:"4599b54256733a36cb2b1566dfa50cb29e0e4fd9";s:7:"others0";s:40:"2547bbbfd50e35577cb404cf4a20c12e7e93a53b";s:3:"db0";s:40:"c2bd296bdc2ca1435d81255a247bb1a64f4d1d71";}}s:5:"nonce";s:12:"26a84a390708";s:7:"service";a:1:{i:0;s:4:"none";}}}', 'yes'),
+ (6852, 'updraft_last_backup', 'a:5:{s:11:"backup_time";i:1396284475;s:12:"backup_array";a:3:{s:2:"db";s:62:"backup_2014-03-31-1647_EESTEC_international_4cf48479d643-db.gz";s:7:"db-size";i:529031;s:9:"checksums";a:1:{s:4:"sha1";a:1:{s:3:"db0";s:40:"48c01ff640d039e7395b2f6aeda57d4a7685435c";}}}s:7:"success";i:1;s:6:"errors";a:0:{}s:12:"backup_nonce";s:12:"4cf48479d643";}', 'yes'),
  (7067, '_site_transient_timeout_browser_202665350ff96275d5f63aa102c7a322', '1384898985', 'yes'),
  (7068, '_site_transient_browser_202665350ff96275d5f63aa102c7a322', 'a:9:{s:8:"platform";s:7:"Windows";s:4:"name";s:6:"Chrome";s:7:"version";s:13:"30.0.1599.101";s:10:"update_url";s:28:"http://www.google.com/chrome";s:7:"img_src";s:49:"http://s.wordpress.org/images/browsers/chrome.png";s:11:"img_src_ssl";s:48:"https://wordpress.org/images/browsers/chrome.png";s:15:"current_version";s:2:"18";s:7:"upgrade";b:0;s:8:"insecure";b:0;}', 'yes'),
  (7179, '_site_transient_timeout_wporg_theme_feature_list', '1384400584', 'yes'),
@@ -312,7 +312,7 @@ INSERT INTO `wp_options` VALUES (1, 'siteurl', 'http://international.eestec-lj.o
  (7183, 'theme_mods_international', 'a:2:{i:0;b:0;s:18:"nav_menu_locations";a:6:{s:7:"primary";i:12;s:8:"homepage";i:21;s:7:"student";i:22;s:7:"default";i:0;s:10:"university";i:23;s:7:"company";i:24;}}', 'yes'),
  (7184, 'theme_switched', '', 'yes'),
  (7315, 'updraftplus_locked_d', '1', 'yes'),
- (7316, 'updraftplus_last_lock_time_d', '2014-03-31 16:47:55', 'yes'),
+ (7316, 'updraftplus_last_lock_time_d', '2014-03-31 17:57:50', 'yes'),
  (7317, 'updraftplus_semaphore_d', '1', 'yes'),
  (7805, 'scoper_custom_event_type', 'a:6:{i:0;b:1;i:10;b:1;i:9;b:1;i:7;b:1;i:8;b:1;i:6;b:1;}', 'no'),
  (8353, 'scoper_define_usergroups', '1', 'no'),
@@ -348,7 +348,7 @@ INSERT INTO `wp_options` VALUES (1, 'siteurl', 'http://international.eestec-lj.o
  (8383, 'scoper_custom_user_blogcaps', '1', 'no'),
  (8384, 'scoper_lock_top_pages', '', 'no'),
  (8385, 'scoper_display_user_profile_groups', '', 'no'),
- (8386, 'scoper_display_user_profile_roles', '1', 'no'),
+ (8386, 'scoper_display_user_profile_roles', '', 'no'),
  (8387, 'scoper_limit_user_edit_by_level', '1', 'no'),
  (8388, 'scoper_hide_non_editor_admin_divs', '0', 'no'),
  (8389, 'scoper_indicate_blended_roles', '1', 'no'),
@@ -367,7 +367,7 @@ INSERT INTO `wp_options` VALUES (1, 'siteurl', 'http://international.eestec-lj.o
  (8402, 'scoper_use_taxonomies', 'a:4:{s:8:"category";s:1:"1";s:8:"post_tag";s:0:"";s:11:"post_format";s:0:"";s:10:"event_type";s:1:"1";}', 'no'),
  (8403, 'scoper_use_post_types', 'a:5:{s:4:"post";s:1:"1";s:4:"page";s:1:"1";s:6:"events";s:1:"1";s:3:"lcs";s:1:"1";s:12:"applications";s:1:"1";}', 'no'),
  (8404, 'scoper_private_items_listable', 'a:1:{s:9:"post:page";s:1:"1";}', 'no'),
- (8405, 'scoper_default_private', 'a:5:{s:9:"post:post";s:0:"";s:9:"post:page";s:0:"";s:11:"post:events";s:0:"";s:8:"post:lcs";s:0:"";s:17:"post:applications";s:0:"";}', 'no'),
+ (8405, 'scoper_default_private', 'a:5:{s:9:"post:post";s:0:"";s:9:"post:page";s:0:"";s:11:"post:events";s:0:"";s:8:"post:lcs";s:0:"";s:17:"post:applications";s:1:"1";}', 'no'),
  (8406, 'scoper_sync_private', 'a:5:{s:9:"post:post";s:0:"";s:9:"post:page";s:0:"";s:11:"post:events";s:0:"";s:8:"post:lcs";s:0:"";s:17:"post:applications";s:0:"";}', 'no'),
  (8407, 'scoper_do_teaser', 'a:1:{s:4:"post";s:0:"";}', 'no'),
  (8408, 'scoper_teaser_hide_private', 'a:5:{s:9:"post:post";s:0:"";s:9:"post:page";s:0:"";s:11:"post:events";s:0:"";s:8:"post:lcs";s:0:"";s:17:"post:applications";s:0:"";}', 'no'),
@@ -395,10 +395,10 @@ INSERT INTO `wp_options` VALUES (1, 'siteurl', 'http://international.eestec-lj.o
  (8430, 'scoper_term_roles_column', 'a:5:{s:9:"post:post";s:0:"";s:9:"post:page";s:1:"1";s:11:"post:events";s:0:"";s:8:"post:lcs";s:0:"";s:17:"post:applications";s:0:"";}', 'no'),
  (8431, 'scoper_object_roles_column', 'a:5:{s:9:"post:post";s:0:"";s:9:"post:page";s:1:"1";s:11:"post:events";s:0:"";s:8:"post:lcs";s:0:"";s:17:"post:applications";s:0:"";}', 'no'),
  (8432, 'scoper_use_term_roles', 'a:4:{s:9:"post:post";a:3:{s:8:"category";s:1:"1";s:8:"post_tag";s:1:"1";s:11:"post_format";s:1:"1";}s:11:"post:events";a:1:{s:10:"event_type";s:1:"1";}s:18:"post:nav_menu_item";a:1:{s:8:"nav_menu";s:1:"1";}s:9:"link:link";a:1:{s:13:"link_category";s:1:"1";}}', 'no'),
- (8433, 'scoper_use_object_roles', 'a:5:{s:9:"post:post";s:0:"";s:9:"post:page";s:1:"1";s:11:"post:events";s:1:"1";s:8:"post:lcs";s:1:"1";s:17:"post:applications";s:1:"1";}', 'no'),
+ (8433, 'scoper_use_object_roles', 'a:5:{s:9:"post:post";s:0:"";s:9:"post:page";s:1:"1";s:11:"post:events";s:0:"";s:8:"post:lcs";s:0:"";s:17:"post:applications";s:1:"1";}', 'no'),
  (8434, 'scoper_disabled_access_types', 'a:2:{s:5:"front";b:0;s:5:"admin";b:0;}', 'no'),
- (8435, 'scoper_disabled_role_caps', 'a:24:{s:14:"rs_link_editor";a:0:{}s:16:"rs_group_manager";a:0:{}s:18:"rs_group_moderator";a:0:{}s:18:"rs_group_applicant";a:0:{}s:22:"rs_private_post_reader";a:0:{}s:19:"rs_post_contributor";a:0:{}s:14:"rs_post_author";a:0:{}s:14:"rs_post_editor";a:0:{}s:22:"rs_private_page_reader";a:0:{}s:19:"rs_page_contributor";a:0:{}s:14:"rs_page_author";a:0:{}s:14:"rs_page_editor";a:0:{}s:24:"rs_private_events_reader";a:0:{}s:21:"rs_events_contributor";a:0:{}s:16:"rs_events_author";a:0:{}s:16:"rs_events_editor";a:1:{s:14:"create_eventss";b:1;}s:21:"rs_private_lcs_reader";a:1:{s:17:"read_private_lcss";b:1;}s:18:"rs_lcs_contributor";a:2:{s:11:"delete_lcss";b:1;s:11:"create_lcss";b:1;}s:13:"rs_lcs_author";a:5:{s:12:"publish_lcss";b:1;s:19:"edit_published_lcss";b:1;s:21:"delete_published_lcss";b:1;s:11:"delete_lcss";b:1;s:11:"create_lcss";b:1;}s:13:"rs_lcs_editor";a:9:{s:18:"delete_others_lcss";b:1;s:12:"publish_lcss";b:1;s:19:"delete_private_lcss";b:1;s:17:"edit_private_lcss";b:1;s:21:"delete_published_lcss";b:1;s:19:"edit_published_lcss";b:1;s:11:"delete_lcss";b:1;s:17:"read_private_lcss";b:1;s:11:"create_lcss";b:1;}s:30:"rs_private_applications_reader";a:0:{}s:27:"rs_applications_contributor";a:0:{}s:22:"rs_applications_author";a:0:{}s:22:"rs_applications_editor";a:3:{s:27:"delete_others_applicationss";b:1;s:28:"delete_private_applicationss";b:1;s:30:"delete_published_applicationss";b:1;}}', 'no'),
- (8436, 'scoper_user_role_caps', 'a:24:{s:14:"rs_link_editor";a:0:{}s:16:"rs_group_manager";a:0:{}s:18:"rs_group_moderator";a:0:{}s:18:"rs_group_applicant";a:0:{}s:22:"rs_private_post_reader";a:0:{}s:19:"rs_post_contributor";a:0:{}s:14:"rs_post_author";a:0:{}s:14:"rs_post_editor";a:0:{}s:22:"rs_private_page_reader";a:0:{}s:19:"rs_page_contributor";a:0:{}s:14:"rs_page_author";a:0:{}s:14:"rs_page_editor";a:0:{}s:24:"rs_private_events_reader";a:0:{}s:21:"rs_events_contributor";a:0:{}s:16:"rs_events_author";a:5:{s:21:"delete_others_eventss";b:1;s:22:"delete_private_eventss";b:1;s:19:"edit_others_eventss";b:1;s:20:"edit_private_eventss";b:1;s:20:"read_private_eventss";b:1;}s:16:"rs_events_editor";a:0:{}s:21:"rs_private_lcs_reader";a:1:{s:18:"read_private_posts";b:1;}s:18:"rs_lcs_contributor";a:1:{s:12:"delete_posts";b:1;}s:13:"rs_lcs_author";a:4:{s:12:"delete_posts";b:1;s:22:"delete_published_posts";b:1;s:20:"edit_published_posts";b:1;s:13:"publish_posts";b:1;}s:13:"rs_lcs_editor";a:8:{s:19:"delete_others_posts";b:1;s:12:"delete_posts";b:1;s:20:"delete_private_posts";b:1;s:22:"delete_published_posts";b:1;s:18:"edit_private_posts";b:1;s:20:"edit_published_posts";b:1;s:13:"publish_posts";b:1;s:18:"read_private_posts";b:1;}s:30:"rs_private_applications_reader";a:0:{}s:27:"rs_applications_contributor";a:0:{}s:22:"rs_applications_author";a:0:{}s:22:"rs_applications_editor";a:0:{}}', 'no'),
+ (8435, 'scoper_disabled_role_caps', 'a:24:{s:14:"rs_link_editor";a:0:{}s:16:"rs_group_manager";a:0:{}s:18:"rs_group_moderator";a:0:{}s:18:"rs_group_applicant";a:0:{}s:22:"rs_private_post_reader";a:0:{}s:19:"rs_post_contributor";a:0:{}s:14:"rs_post_author";a:0:{}s:14:"rs_post_editor";a:0:{}s:22:"rs_private_page_reader";a:0:{}s:19:"rs_page_contributor";a:0:{}s:14:"rs_page_author";a:0:{}s:14:"rs_page_editor";a:0:{}s:24:"rs_private_events_reader";a:0:{}s:21:"rs_events_contributor";a:0:{}s:16:"rs_events_author";a:0:{}s:16:"rs_events_editor";a:1:{s:14:"create_eventss";b:1;}s:21:"rs_private_lcs_reader";a:1:{s:17:"read_private_lcss";b:1;}s:18:"rs_lcs_contributor";a:2:{s:11:"delete_lcss";b:1;s:11:"create_lcss";b:1;}s:13:"rs_lcs_author";a:4:{s:12:"publish_lcss";b:1;s:21:"delete_published_lcss";b:1;s:11:"delete_lcss";b:1;s:11:"create_lcss";b:1;}s:13:"rs_lcs_editor";a:1:{s:17:"read_private_lcss";b:1;}s:30:"rs_private_applications_reader";a:0:{}s:27:"rs_applications_contributor";a:0:{}s:22:"rs_applications_author";a:0:{}s:22:"rs_applications_editor";a:3:{s:27:"delete_others_applicationss";b:1;s:28:"delete_private_applicationss";b:1;s:30:"delete_published_applicationss";b:1;}}', 'no'),
+ (8436, 'scoper_user_role_caps', 'a:24:{s:14:"rs_link_editor";a:0:{}s:16:"rs_group_manager";a:0:{}s:18:"rs_group_moderator";a:0:{}s:18:"rs_group_applicant";a:0:{}s:22:"rs_private_post_reader";a:0:{}s:19:"rs_post_contributor";a:0:{}s:14:"rs_post_author";a:0:{}s:14:"rs_post_editor";a:0:{}s:22:"rs_private_page_reader";a:0:{}s:19:"rs_page_contributor";a:0:{}s:14:"rs_page_author";a:0:{}s:14:"rs_page_editor";a:0:{}s:24:"rs_private_events_reader";a:0:{}s:21:"rs_events_contributor";a:0:{}s:16:"rs_events_author";a:5:{s:21:"delete_others_eventss";b:1;s:22:"delete_private_eventss";b:1;s:19:"edit_others_eventss";b:1;s:20:"edit_private_eventss";b:1;s:20:"read_private_eventss";b:1;}s:16:"rs_events_editor";a:0:{}s:21:"rs_private_lcs_reader";a:1:{s:18:"read_private_posts";b:1;}s:18:"rs_lcs_contributor";a:5:{s:16:"edit_others_lcss";b:1;s:17:"edit_private_lcss";b:1;s:19:"edit_published_lcss";b:1;s:17:"read_private_lcss";b:1;s:12:"upload_files";b:1;}s:13:"rs_lcs_author";a:6:{s:22:"delete_published_posts";b:1;s:16:"edit_others_lcss";b:1;s:17:"edit_private_lcss";b:1;s:20:"edit_published_posts";b:1;s:13:"publish_posts";b:1;s:17:"read_private_lcss";b:1;}s:13:"rs_lcs_editor";a:9:{s:15:"assign_nav_menu";b:1;s:19:"delete_others_posts";b:1;s:12:"delete_posts";b:1;s:20:"delete_private_posts";b:1;s:22:"delete_published_posts";b:1;s:18:"edit_private_posts";b:1;s:20:"edit_published_posts";b:1;s:13:"publish_posts";b:1;s:18:"read_private_posts";b:1;}s:30:"rs_private_applications_reader";a:0:{}s:27:"rs_applications_contributor";a:0:{}s:22:"rs_applications_author";a:0:{}s:22:"rs_applications_editor";a:0:{}}', 'no'),
  (8450, 'scoper_custom_', 'a:1:{i:0;b:1;}', 'no'),
  (9353, '_site_transient_timeout_browser_a49f4fb1111644b3e72b7b74ae13f49f', '1385227603', 'yes'),
  (9354, '_site_transient_browser_a49f4fb1111644b3e72b7b74ae13f49f', 'a:9:{s:8:"platform";s:7:"Windows";s:4:"name";s:7:"Firefox";s:7:"version";s:4:"25.0";s:10:"update_url";s:23:"http://www.firefox.com/";s:7:"img_src";s:50:"http://s.wordpress.org/images/browsers/firefox.png";s:11:"img_src_ssl";s:49:"https://wordpress.org/images/browsers/firefox.png";s:15:"current_version";s:2:"16";s:7:"upgrade";b:0;s:8:"insecure";b:0;}', 'yes'),
@@ -471,9 +471,8 @@ INSERT INTO `wp_options` VALUES (1, 'siteurl', 'http://international.eestec-lj.o
  (12574, '_transient_dash_20494a3d90a6669585674ed0eb8dcd8f', '<p>This dashboard widget queries <a href="http://blogsearch.google.com/">Google Blog Search</a> so that when another blog links to your site it will show up here. It has found no incoming links&hellip; yet. It&#8217;s okay &#8212; there is no rush.</p>\n', 'no'),
  (12576, '_site_transient_timeout_theme_roots', '1396284143', 'yes'),
  (12577, '_site_transient_theme_roots', 'a:1:{s:13:"international";s:7:"/themes";}', 'yes'),
- (12578, 'scoper_page_ancestors', 'a:7:{i:3249;a:1:{i:0;s:4:"3247";}i:3251;a:1:{i:0;s:4:"3247";}i:3261;a:1:{i:0;s:4:"3247";}i:3263;a:1:{i:0;s:4:"3247";}i:3275;a:1:{i:0;s:4:"3247";}i:3278;a:1:{i:0;s:4:"3247";}i:3280;a:1:{i:0;s:4:"3247";}}', 'yes'),
- (12579, '_transient_is_multi_author', '1', 'yes'),
- (12582, '_transient_doing_cron', '1396284474.1158289909362792968750', 'yes');
+ (12578, 'scoper_page_ancestors', 'a:7:{i:3249;a:1:{i:0;s:4:"3247";}i:3251;a:1:{i:0;s:4:"3247";}i:3261;a:1:{i:0;s:4:"3247";}i:3263;a:1:{i:0;s:4:"3247";}i:3275;a:1:{i:0;s:4:"3247";}i:3278;a:1:{i:0;s:4:"3247";}i:3280;a:1:{i:0;s:4:"3247";}}', 'no'),
+ (12585, '_transient_doing_cron', '1396288668.7891149520874023437500', 'yes');
 # End of data contents of table `wp_options`
 
 # Table: `wp_users`
@@ -681,8 +680,8 @@ INSERT INTO `wp_usermeta` VALUES (1, 1, 'first_name', 'Erik'),
  (159, 10, 'dismissed_wp_pointers', 'wp330_toolbar,wp330_saving_widgets,wp340_choose_image_from_library,wp340_customize_current_theme_link,wp350_media,wp360_revisions,wp360_locks'),
  (160, 10, 'wp_capabilities', 'a:2:{s:10:"subscriber";b:1;s:6:"itteam";b:1;}'),
  (161, 10, 'wp_user_level', '0'),
- (162, 7, 'wp_dashboard_quick_press_last_post_id', '4012'),
- (167, 9, 'wp_dashboard_quick_press_last_post_id', '3409'),
+ (162, 7, 'wp_dashboard_quick_press_last_post_id', '4030'),
+ (167, 9, 'wp_dashboard_quick_press_last_post_id', '4029'),
  (168, 11, 'first_name', 'test'),
  (169, 11, 'last_name', 'test'),
  (170, 11, 'nickname', 'test'),
@@ -861,7 +860,7 @@ CREATE TABLE `wp_links` (
 # End of data contents of table `wp_links`
 
 # Table: `wp_postmeta`
-# Approximate rows expected in table: 7499
+# Approximate rows expected in table: 7898
 
 # Delete any existing table `wp_postmeta`
 
@@ -877,7 +876,7 @@ CREATE TABLE `wp_postmeta` (
   PRIMARY KEY (`meta_id`),
   KEY `post_id` (`post_id`),
   KEY `meta_key` (`meta_key`)
-) ENGINE=InnoDB AUTO_INCREMENT=15342 DEFAULT CHARSET=utf8 ;
+) ENGINE=InnoDB AUTO_INCREMENT=15345 DEFAULT CHARSET=utf8 ;
 
 # Data contents of table `wp_postmeta`
 
@@ -5570,7 +5569,7 @@ INSERT INTO `wp_postmeta` VALUES (10376, 2970, '_yoast_wpseo_redirect', ''),
  (11292, 3106, '_networkpub_meta_published', 'new'),
  (11293, 3106, '_yoast_wpseo_linkdex', '0'),
  (11294, 3106, '_edit_last', '2'),
- (11295, 3106, '_edit_lock', '1385076695:2'),
+ (11295, 3106, '_edit_lock', '1396286455:7'),
  (11302, 3106, '_networkpub_meta_content', '0'),
  (11303, 3107, 'organizer', 'LC Skopje'),
  (11304, 3107, '_organizer', 'field_1'),
@@ -7328,7 +7327,7 @@ INSERT INTO `wp_postmeta` VALUES (12981, 3310, '_menu_item_menu_item_parent', '0
  (13687, 3401, '_edit_lock', '1383818840:1'),
  (13692, 3228, 'field_527b6e9ef96ec', 'a:12:{s:3:"key";s:19:"field_527b6e9ef96ec";s:5:"label";s:19:"Temporary organizer";s:4:"name";s:2:"lc";s:4:"type";s:11:"post_object";s:12:"instructions";s:0:"";s:8:"required";s:1:"0";s:9:"post_type";a:1:{i:0;s:3:"lcs";}s:8:"taxonomy";a:1:{i:0;s:3:"all";}s:10:"allow_null";s:1:"1";s:8:"multiple";s:1:"0";s:17:"conditional_logic";a:3:{s:6:"status";s:1:"0";s:5:"rules";a:1:{i:0;a:3:{s:5:"field";s:19:"field_524b48507bc04";s:8:"operator";s:2:"==";s:5:"value";s:11:"LC Aachenre";}}s:8:"allorany";s:3:"all";}s:8:"order_no";i:7;}'),
  (13702, 3412, '_edit_last', '1'),
- (13703, 3412, '_edit_lock', '1384570137:1'),
+ (13703, 3412, '_edit_lock', '1396287998:1'),
  (13704, 3413, 'organizer', 'LC Aachenre'),
  (13705, 3413, '_organizer', 'field_524b48507bc04'),
  (13706, 3413, 'application_deadline', ''),
@@ -7346,7 +7345,6 @@ INSERT INTO `wp_postmeta` VALUES (12981, 3310, '_menu_item_menu_item_parent', '0
  (13718, 3413, 'application_form', ''),
  (13719, 3413, '_application_form', 'field_524b4b4f7bc0b'),
  (13720, 3413, '_', 'field_527b6e9ef96ec'),
- (13721, 3412, 'lc', '3301'),
  (13723, 3412, '_organizer', 'field_524b48507bc04'),
  (13724, 3412, 'application_deadline', '20131119'),
  (13725, 3412, '_application_deadline', 'field_524b487f7bc05'),
@@ -7356,7 +7354,6 @@ INSERT INTO `wp_postmeta` VALUES (12981, 3310, '_menu_item_menu_item_parent', '0
  (13729, 3412, '_start_date', 'field_524b4a1a7bc07'),
  (13730, 3412, 'end_date', '20131122'),
  (13731, 3412, '_end_date', 'field_524b4a8b7bc08'),
- (13732, 3412, 'fee', '0'),
  (13733, 3412, '_fee', 'field_524b4aac7bc09'),
  (13734, 3412, 'additional_info', ''),
  (13735, 3412, '_additional_info', 'field_524b4ade7bc0a'),
@@ -7380,7 +7377,6 @@ INSERT INTO `wp_postmeta` VALUES (12981, 3310, '_menu_item_menu_item_parent', '0
  (13753, 3414, 'application_form', 'adad'),
  (13754, 3414, '_application_form', 'field_524b4b4f7bc0b'),
  (13755, 3414, '_', 'field_527b6e9ef96ec'),
- (13756, 3412, 'lc', '3301'),
  (13757, 3415, 'organizer', 'LC Aachenre'),
  (13758, 3415, '_organizer', 'field_524b48507bc04'),
  (13759, 3415, 'application_deadline', '20131119'),
@@ -7398,7 +7394,6 @@ INSERT INTO `wp_postmeta` VALUES (12981, 3310, '_menu_item_menu_item_parent', '0
  (13771, 3415, 'application_form', 'adad'),
  (13772, 3415, '_application_form', 'field_524b4b4f7bc0b'),
  (13773, 3415, '_', 'field_527b6e9ef96ec'),
- (13774, 3412, 'lc', '3301'),
  (13775, 3416, 'organizer', 'LC Aachenre'),
  (13776, 3416, '_organizer', 'field_524b48507bc04'),
  (13777, 3416, 'application_deadline', '20131119'),
@@ -7416,14 +7411,13 @@ INSERT INTO `wp_postmeta` VALUES (12981, 3310, '_menu_item_menu_item_parent', '0
  (13789, 3416, 'application_form', 'adad'),
  (13790, 3416, '_application_form', 'field_524b4b4f7bc0b'),
  (13791, 3416, '_', 'field_527b6e9ef96ec'),
- (13792, 3412, 'lc', '3301'),
  (13794, 3418, 'lc', '3301'),
  (13795, 3418, '_edit_last', '1'),
  (13796, 3418, 'lc', '3301'),
  (13797, 3418, '_edit_lock', '1384568051:1'),
  (13799, 3420, 'lc', '3750'),
  (13800, 3420, '_edit_last', '1'),
- (13801, 3420, '_edit_lock', '1393993501:7'),
+ (13801, 3420, '_edit_lock', '1396287562:1'),
  (13802, 3421, 'organizer', 'LC Aachenre'),
  (13803, 3421, '_organizer', 'field_524b48507bc04'),
  (13804, 3421, 'application_deadline', '20131102'),
@@ -7881,13 +7875,13 @@ INSERT INTO `wp_postmeta` VALUES (12981, 3310, '_menu_item_menu_item_parent', '0
  (14589, 2274, '_edit_lock', '1385080052:2'),
  (14590, 2275, '_edit_lock', '1385080078:2'),
  (14591, 2275, '_edit_last', '2'),
- (14592, 2276, '_edit_last', '2'); 
-INSERT INTO `wp_postmeta` VALUES (14593, 2276, '_edit_lock', '1385080098:2'),
+ (14592, 2276, '_edit_last', '2'),
+ (14593, 2276, '_edit_lock', '1385080098:2'),
  (14594, 2277, '_edit_last', '2'),
  (14595, 2277, '_edit_lock', '1385080106:2'),
  (14596, 2278, '_edit_last', '2'),
- (14597, 2278, '_edit_lock', '1385080113:2'),
- (14598, 2279, '_edit_last', '2'),
+ (14597, 2278, '_edit_lock', '1385080113:2'); 
+INSERT INTO `wp_postmeta` VALUES (14598, 2279, '_edit_last', '2'),
  (14599, 2279, '_edit_lock', '1385080126:2'),
  (14600, 2280, '_edit_last', '2'),
  (14601, 2280, '_edit_lock', '1385080134:2'),
@@ -8539,7 +8533,7 @@ INSERT INTO `wp_postmeta` VALUES (14593, 2276, '_edit_lock', '1385080098:2'),
  (15304, 4021, '_edit_lock', '1396282493:1'),
  (15305, 4021, '_edit_last', '7'),
  (15306, 4022, 'event', '3420'),
- (15307, 4022, '_edit_lock', '1396284451:1'),
+ (15307, 4022, '_edit_lock', '1396284970:1'),
  (15308, 4022, '_edit_last', '1'),
  (15309, 4022, '_scoper_custom', '1'),
  (15310, 4022, 'arival_time', '1395486000'),
@@ -8563,11 +8557,14 @@ INSERT INTO `wp_postmeta` VALUES (14593, 2276, '_edit_lock', '1385080098:2'),
  (15335, 3231, '_thumbnail_id', '4027'),
  (15339, 3946, 'rule', 'a:5:{s:5:"param";s:9:"post_type";s:8:"operator";s:2:"==";s:5:"value";s:12:"applications";s:8:"order_no";i:0;s:8:"group_no";i:0;}'),
  (15340, 4022, 'arrival_time', '1394535600'),
- (15341, 4022, '_arrival_time', 'field_52a18382e5023');
+ (15341, 4022, '_arrival_time', 'field_52a18382e5023'),
+ (15342, 3412, '_lc', 'field_527b6e9ef96ec'),
+ (15343, 3412, 'lc', '3750'),
+ (15344, 3412, 'fee', '0');
 # End of data contents of table `wp_postmeta`
 
 # Table: `wp_posts`
-# Approximate rows expected in table: 271
+# Approximate rows expected in table: 278
 
 # Delete any existing table `wp_posts`
 
@@ -8605,7 +8602,7 @@ CREATE TABLE `wp_posts` (
   KEY `type_status_date` (`post_type`,`post_status`,`post_date`,`ID`),
   KEY `post_parent` (`post_parent`),
   KEY `post_author` (`post_author`)
-) ENGINE=InnoDB AUTO_INCREMENT=4029 DEFAULT CHARSET=utf8 ;
+) ENGINE=InnoDB AUTO_INCREMENT=4031 DEFAULT CHARSET=utf8 ;
 
 # Data contents of table `wp_posts`
 
@@ -8846,7 +8843,7 @@ INSERT INTO `wp_posts` VALUES (2216, 1, '2013-02-28 00:42:41', '2013-02-27 23:42
  (3390, 2, '2013-11-07 08:34:17', '2013-11-07 08:34:17', '', 'File uploading', '', 'publish', 'closed', 'closed', '', 'acf_file-uploading', '', '', '2013-11-07 08:34:17', '2013-11-07 08:34:17', '', 0, 'http://international.eestec-lj.org/?post_type=acf&#038;p=3390', 0, 'acf', '', 0, 0),
  (3396, 2, '2013-11-07 08:59:31', '2013-11-07 08:59:31', '', 'Reports', '', 'publish', 'closed', 'closed', '', 'reports', '', '', '2013-11-07 08:59:31', '2013-11-07 08:59:31', '', 0, 'http://international.eestec-lj.org/?post_type=documents&#038;p=3396', 0, 'documents', '', 0, 0),
  (3401, 1, '2013-11-07 09:56:22', '0000-00-00 00:00:00', '', 'Rop', '', 'draft', 'closed', 'closed', '', '', '', '', '2013-11-07 09:56:22', '2013-11-07 09:56:22', '', 0, 'http://international.eestec-lj.org/?post_type=documents&#038;p=3401', 0, 'documents', '', 0, 0),
- (3412, 1, '2013-11-16 02:02:39', '2013-11-16 02:02:39', 'sfsdfsdf dfs', 'dfdf', '', 'publish', 'closed', 'closed', '', 'dfdf', '', '', '2013-11-16 02:04:31', '2013-11-16 02:04:31', '', 0, 'http://localhost/international/?post_type=events&#038;p=3412', 0, 'events', '', 0, 0),
+ (3412, 1, '2013-11-16 02:02:39', '2013-11-16 02:02:39', 'sfsdfsdf dfs', 'dfdf', '', 'publish', 'closed', 'closed', '', 'dfdf', '', '', '2014-03-31 17:47:21', '2014-03-31 17:47:21', '', 0, 'http://localhost/international/?post_type=events&#038;p=3412', 0, 'events', '', 0, 0),
  (3413, 1, '2013-11-16 02:01:34', '2013-11-16 02:01:34', '', 'dfdf', '', 'inherit', 'closed', 'open', '', '3412-revision-v1', '', '', '2013-11-16 02:01:34', '2013-11-16 02:01:34', '', 3412, 'http://localhost/international/3412-revision-v1/', 0, 'revision', '', 0, 0),
  (3414, 1, '2013-11-16 02:02:39', '2013-11-16 02:02:39', 'sfsdfsdf', 'dfdf', '', 'inherit', 'closed', 'open', '', '3412-revision-v1', '', '', '2013-11-16 02:02:39', '2013-11-16 02:02:39', '', 3412, 'http://localhost/international/3412-revision-v1/', 0, 'revision', '', 0, 0),
  (3415, 1, '2013-11-16 02:04:01', '2013-11-16 02:04:01', 'sfsdfsdf df', 'dfdf', '', 'inherit', 'closed', 'open', '', '3412-revision-v1', '', '', '2013-11-16 02:04:01', '2013-11-16 02:04:01', '', 3412, 'http://localhost/international/3412-revision-v1/', 0, 'revision', '', 0, 0),
@@ -9095,7 +9092,9 @@ INSERT INTO `wp_posts` VALUES (3833, 2, '2013-11-21 23:58:06', '2013-11-21 23:58
  (4025, 1, '2014-03-30 07:50:17', '2014-03-30 07:50:17', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem. Investigationes demonstraverunt lectores legere me lius quod ii legunt saepius. Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula quarta decima et quinta decima. Eodem modo typi, qui nunc nobis videntur parum clari, fiant sollemnes in futurum.', 'test', '', 'inherit', 'closed', 'open', '', '3386-revision-v1', '', '', '2014-03-30 07:50:17', '2014-03-30 07:50:17', '', 3386, 'http://localhost/international/?p=4025', 0, 'revision', '', 0, 0),
  (4026, 1, '2014-03-30 07:50:34', '2014-03-30 07:50:34', 'The constuction of the new EESTEC website has started.  At the moment, our focus is in implementing some basic functionality.\r\n\r\nLorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem. Investigationes demonstraverunt lectores legere me lius quod ii legunt saepius. Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula quarta decima et quinta decima. Eodem modo typi, qui nunc nobis videntur parum clari, fiant sollemnes in futurum.', 'Under construction', '', 'inherit', 'closed', 'open', '', '3231-revision-v1', '', '', '2014-03-30 07:50:34', '2014-03-30 07:50:34', '', 3231, 'http://localhost/international/?p=4026', 0, 'revision', '', 0, 0),
  (4027, 1, '2014-03-30 07:56:02', '2014-03-30 07:56:02', '', 'sample_01 (1)', '', 'inherit', 'closed', 'open', '', 'sample_01-1', '', '', '2014-03-30 07:56:02', '2014-03-30 07:56:02', '', 3231, 'http://localhost/international/wp-content/uploads/2013/10/sample_01-1.jpg', 0, 'attachment', 'image/jpeg', 0, 0),
- (4028, 1, '2014-03-31 14:09:59', '0000-00-00 00:00:00', '', 'Auto Draft', '', 'auto-draft', 'closed', 'open', '', '', '', '', '2014-03-31 14:09:59', '0000-00-00 00:00:00', '', 0, 'http://localhost/international/?p=4028', 0, 'post', '', 0, 0);
+ (4028, 1, '2014-03-31 14:09:59', '0000-00-00 00:00:00', '', 'Auto Draft', '', 'auto-draft', 'closed', 'open', '', '', '', '', '2014-03-31 14:09:59', '0000-00-00 00:00:00', '', 0, 'http://localhost/international/?p=4028', 0, 'post', '', 0, 0),
+ (4029, 9, '2014-03-31 16:55:39', '0000-00-00 00:00:00', '', 'Auto Draft', '', 'auto-draft', 'closed', 'open', '', '', '', '', '2014-03-31 16:55:39', '0000-00-00 00:00:00', '', 0, 'http://localhost/international/?p=4029', 0, 'post', '', 0, 0),
+ (4030, 7, '2014-03-31 16:56:38', '0000-00-00 00:00:00', '', 'Auto Draft', '', 'auto-draft', 'closed', 'open', '', '', '', '', '2014-03-31 16:56:38', '0000-00-00 00:00:00', '', 0, 'http://localhost/international/?p=4030', 0, 'post', '', 0, 0);
 # End of data contents of table `wp_posts`
 
 # Table: `wp_term_relationships`
@@ -9905,7 +9904,7 @@ CREATE TABLE `wp_memberful_mapping` (
 # End of data contents of table `wp_memberful_mapping`
 
 # Table: `wp_posts_temp`
-# Approximate rows expected in table: 127
+# Approximate rows expected in table: 109
 
 # Delete any existing table `wp_posts_temp`
 
@@ -10179,7 +10178,7 @@ CREATE TABLE `wp_user2group_rs` (
 # End of data contents of table `wp_user2group_rs`
 
 # Table: `wp_user2role2object_rs`
-# Approximate rows expected in table: 138
+# Approximate rows expected in table: 139
 
 # Delete any existing table `wp_user2role2object_rs`
 
@@ -10210,7 +10209,7 @@ CREATE TABLE `wp_user2role2object_rs` (
   KEY `role2agent` (`assign_for`,`scope`,`role_type`,`role_name`,`group_id`,`user_id`),
   KEY `role_rs` (`date_limited`,`role_type`,`role_name`,`scope`,`assign_for`,`src_or_tx_name`,`group_id`,`user_id`,`obj_or_term_id`),
   KEY `role_assignments` (`role_name`,`role_type`,`scope`,`assign_for`,`src_or_tx_name`,`group_id`,`user_id`,`obj_or_term_id`,`inherited_from`,`assignment_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2314 DEFAULT CHARSET=latin1 ;
+) ENGINE=InnoDB AUTO_INCREMENT=2319 DEFAULT CHARSET=latin1 ;
 
 # Data contents of table `wp_user2role2object_rs`
 
@@ -10238,7 +10237,6 @@ INSERT INTO `wp_user2role2object_rs` VALUES (1, 1, NULL, 'administrator', 'wp', 
  (25, NULL, 9, 'post_contributor', 'rs', 'blog', '', 0, 'entity', 0, 1, 0, '0000-00-00 00:00:00', '2035-01-01 00:00:00', 0, '0000-00-00 00:00:00', '2035-01-01 00:00:00'),
  (26, 7, NULL, 'editor', 'wp', 'blog', '', 0, 'entity', 0, 0, 0, '0000-00-00 00:00:00', '2035-01-01 00:00:00', 0, '0000-00-00 00:00:00', '2035-01-01 00:00:00'),
  (27, NULL, 8, 'events_editor', 'rs', 'object', 'post', 3420, 'both', 0, 1, 0, '0000-00-00 00:00:00', '2035-01-01 00:00:00', 0, '0000-00-00 00:00:00', '2035-01-01 00:00:00'),
- (2144, NULL, 8, 'lcs_contributor', 'rs', 'blog', '', 0, 'entity', 0, 1, 0, '0000-00-00 00:00:00', '2035-01-01 00:00:00', 0, '0000-00-00 00:00:00', '2035-01-01 00:00:00'),
  (2199, NULL, 8, 'lcs_contributor', 'rs', 'object', 'post', 0, 'children', 0, 1, 0, '0000-00-00 00:00:00', '2035-01-01 00:00:00', 0, '0000-00-00 00:00:00', '2035-01-01 00:00:00'),
  (2200, NULL, 8, 'lcs_contributor', 'rs', 'object', 'post', 3750, 'entity', 0, 1, 0, '0000-00-00 00:00:00', '2035-01-01 00:00:00', 0, '0000-00-00 00:00:00', '2035-01-01 00:00:00'),
  (2201, NULL, 8, 'lcs_contributor', 'rs', 'object', 'post', 3751, 'entity', 0, 1, 0, '0000-00-00 00:00:00', '2035-01-01 00:00:00', 0, '0000-00-00 00:00:00', '2035-01-01 00:00:00'),
@@ -10352,7 +10350,9 @@ INSERT INTO `wp_user2role2object_rs` VALUES (1, 1, NULL, 'administrator', 'wp', 
  (2310, NULL, 8, 'applications_editor', 'rs', 'blog', '', 0, 'entity', 0, 1, 0, '0000-00-00 00:00:00', '2035-01-01 00:00:00', 0, '0000-00-00 00:00:00', '2035-01-01 00:00:00'),
  (2311, NULL, 8, 'applications_editor', 'rs', 'object', 'post', 0, 'children', 0, 1, 0, '0000-00-00 00:00:00', '2035-01-01 00:00:00', 0, '0000-00-00 00:00:00', '2035-01-01 00:00:00'),
  (2312, NULL, 8, 'applications_editor', 'rs', 'object', 'post', 4022, 'entity', 0, 1, 0, '0000-00-00 00:00:00', '2035-01-01 00:00:00', 0, '0000-00-00 00:00:00', '2035-01-01 00:00:00'),
- (2313, 7, NULL, 'lcboard', 'wp', 'blog', '', 0, 'entity', 0, 0, 0, '0000-00-00 00:00:00', '2035-01-01 00:00:00', 0, '0000-00-00 00:00:00', '2035-01-01 00:00:00');
+ (2313, 7, NULL, 'lcboard', 'wp', 'blog', '', 0, 'entity', 0, 0, 0, '0000-00-00 00:00:00', '2035-01-01 00:00:00', 0, '0000-00-00 00:00:00', '2035-01-01 00:00:00'),
+ (2317, NULL, 8, 'lcs_author', 'rs', 'blog', '', 0, 'entity', 0, 1, 0, '0000-00-00 00:00:00', '2035-01-01 00:00:00', 0, '0000-00-00 00:00:00', '2035-01-01 00:00:00'),
+ (2318, NULL, 8, 'events_editor', 'rs', 'object', 'post', 3412, 'both', 0, 1, 0, '0000-00-00 00:00:00', '2035-01-01 00:00:00', 0, '0000-00-00 00:00:00', '2035-01-01 00:00:00');
 # End of data contents of table `wp_user2role2object_rs`
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

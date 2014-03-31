@@ -61,8 +61,7 @@ function current_user_has_role($role)
 add_filter( 'user_has_cap', 'edit_lcs', 100, 3 );
 function edit_lcs($allcaps, $cap, $args)
 {	
-	global $current_user;
-        
+	global $current_user;        
 	if(array_key_exists('manage_options',$allcaps))//user is admin
 		return $allcaps;
                 
@@ -96,15 +95,15 @@ function edit_users($allcaps, $cap, $args)
 	return $allcaps;
 }
 
-add_action('save_post', 'link_event_to_lc');
+
+add_action('save_post_eventss', 'link_event_to_lc');
 function link_event_to_lc($post_id)
 {
-
-	if(get_post_type($post_id)=='events'){
-		print_r($post_id);
+        if(get_post_meta($post_id,'lc', true)=='')
+        {
 		$lc=get_cimyFieldValue($current_user->ID,'lc');
-		add_post_meta($post_id,'lc', $lc,true);
-		}	
+                add_post_meta($post_id,'lc', $lc, true);
+        }	
 }
 
 add_filter( 'user_has_cap', 'edit_events', 100, 3 );
@@ -113,24 +112,30 @@ function edit_events($allcaps, $cap, $args)
 	global $current_user;
 	if(array_key_exists('manage_options',$allcaps))//user is admin
 		return $allcaps;
-	
-	//print_r($cap);
-	//print_r($args);
-	
-	if(get_post_type()=='event'){     
-		$allcaps['delete_post'] = false;
-		
+        
+	if(get_post_type()=='events'){
+            	//print_r($cap);
+                //print_r($allcaps);
+                //print_r($args);
                 if(current_user_has_role('lcboard'))
-		if($args[0]=='edit_post')
-		{
+                {                    
+                    $allcaps['delete_published_eventss']=false;
+                    $allcaps['edit_eventss']=false;
+                    $allcaps['edit_others_eventss']=false;                    
+                    $allcaps['delete_others_eventss']=false;
+                    if(is_admin()) 
+                        $allcaps['read_private_eventss'] = False;
+                    
 		$lc=get_cimyFieldValue($current_user->ID,'lc');    //only members of the LC can edit the lc events
                     if (get_post_meta($args[2],'lc',true)==$lc)
-                            $allcaps[$cap[0]] = true;
-                    else                        
-                        $allcaps['delete_others_posts'] = false;
-                        if(is_admin()) 
-                          $allcaps['read_post'] = False;
-                }}	
+                    {
+                        $allcaps['delete_published_eventss']=true;
+                        $allcaps['edit_eventss']=true;
+                        $allcaps['edit_others_eventss']=true;                    
+                        $allcaps['delete_others_eventss']=true;
+                    }
+                }         
+        }
 	return $allcaps;
 }
 
@@ -146,8 +151,7 @@ function remove_menus(){
         remove_menu_page( 'rs-general_roles' );           // role scoper menu
         remove_menu_page( 'tools.php' );                  //Tools
         remove_submenu_page( 'users.php','rs-groups' );   // removing role scoper option from users menu
-    }
-    
+    }    
 }
 
 
