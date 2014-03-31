@@ -193,16 +193,25 @@ function list_applications_columns($old_columns) {
     unset( $columns['date'] );
     */
     
-    //$columns['cb'] = 'Accept';
+    //$columns['cb'] = 'Accept';  
+    
     if($_GET['status']=='accepted')
         $columns['deny'] = 'Deny';
     else        
         $columns['accept'] = 'Accept';
+    if($_GET['mode']=='excerpt')
+        $columns['content'] = 'Content';
     $columns['details'] = 'Application';
     $columns['name'] = 'Name';
-    //$columns['author'] = 'Username';    
-    $columns['lc'] = 'LC';    
+    $columns['email'] = 'Email';
+    $columns['lc'] = 'LC';
+    $columns['arrival'] = 'Arrival';  
+    $columns['departure'] = 'Departure';        
+    $columns['notes'] = 'Notes';    
+    
     $columns['Priority'] = 'Priority';
+    
+        
 
     return $columns;
 }
@@ -212,6 +221,9 @@ function custom_application_columns( $column, $post_id ) {
     switch ( $column ) {      
         case 'name' :  // printing the candidates full name
             echo  get_the_author_meta('first_name').' '.get_the_author_meta('last_name');            
+            break;
+        case 'email' :  // printing the candidates full name
+            echo  get_the_author_meta('user_email');            
             break;
         case 'lc' : // printing the candidates LC
             echo get_the_title(get_the_author_meta('lc')); //random bug  
@@ -225,7 +237,7 @@ function custom_application_columns( $column, $post_id ) {
                  <input type="hidden" name="acceptApplication" value="true"/>                 
                  <input type="hidden" name="event" value="'.$_GET['event'].'"/>
                  <input type="hidden" name="applicationid" id="applicationid" value="'.get_the_id().'" />
-                 <input type="checkbox" onclick="this.form.submit();" />
+                 <input type="checkbox" onclick="this.form.submit();" title="Accept the application"/>
              </form>';
             break;
         case 'deny':
@@ -233,9 +245,24 @@ function custom_application_columns( $column, $post_id ) {
                  <input type="hidden" name="denyApplication" value="true"/>               
                  <input type="hidden" name="event" value="'.$_GET['event'].'"/>
                  <input type="hidden" name="applicationid" id="applicationid" value="'.get_the_id().'" />
-                 <input type="checkbox" onclick="this.form.submit();" />
+                 <input type="checkbox" onclick="this.form.submit();" title="Deny the application" />
              </form>';
             break;
+       case 'arrival':
+            echo get_field('arrival_time').' <br /> '.get_field('arrival_transport').' <br /> '.get_field('arrival_location');
+            break;
+       case 'departure':
+            echo get_field('departure_time').' <br /> '.get_field('departure_transport').' <br /> '.get_field('departure_location');
+            break;
+       case 'notes':
+            echo get_field('notes');
+            break;
+       case 'content':
+           echo  get_the_content();
+           break;
+           
+        
+        
     }
 }
 
