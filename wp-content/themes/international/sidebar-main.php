@@ -12,6 +12,16 @@
 if ( is_active_sidebar( 'sidebar-1' ) ) : ?>
 	<div id="secondary" class="sidebar-container" role="complementary">
 		<div class="widget-area">
+                                                <?php /* Footer sitemap */
+							wp_nav_menu( array(
+							  'menu' => 'sitemap',
+							  'depth' => 2,
+							  'container' => false,
+							  'menu_class' => 'nav',
+							  //Process nav menu using our custom nav walker
+							  'walker' => new wp_bootstrap_navwalker())
+							);
+							?>
 			<?php dynamic_sidebar( 'sidebar-1' ); ?>
 		</div><!-- .widget-area -->
 	</div><!-- #secondary -->
