@@ -547,3 +547,73 @@ function get_visitor_type(){
             return 'company';
     return 'homepage';
 }
+
+
+/* declaration of event post type */
+$labels = array(
+	'name' => _x( 'Events', 'post type general name' ),
+	'singular_name' => _x( 'Event', 'post type singular name' ),
+	'add_new' => __( 'Add New Event' ),
+	'add_new_item' => __( 'Add New Event' ),
+	'edit_item' => __( 'Edit Event' ),
+	'new_item' => __( 'New Event' ),
+	'view_item' => __( 'View Event' ),
+	'search_items' => __( 'Search Events' ),
+	'not_found' => __( 'No events found.' ),
+	'not_found_in_trash' => __( 'No events found in Trash.' ),
+	'menu_name' => __( 'Events' ),
+);
+$args = array(
+	'labels' => $labels,
+	'description' => 'An eestec organized event with applications.',
+	'public' => true,
+	'publicly_queryable' => true,
+	'exclude_from_search' => false,
+	'show_ui' => true,
+	'menu_position' => 5,
+	'menu_icon' => null,
+	'capability_type' => post,
+	'hierarchical' => false,
+	'supports' => array('title', 'editor', 'author', 'thumbnail', 'excerpt', 'custom-fields', 'revisions', 'page-attributes', ),
+	'taxonomies' => array(),
+	'rewrite' => array('slug' => events, 'with_front' => true, ),
+	'query_var' => true,
+	'can_export' => true,
+	'show_in_nav_menus' => true,
+);
+register_post_type('events', $args);
+
+/* declaration of LC post type */
+
+$labels = array(
+	'name' => _x( 'LCs', 'post type general name' ),
+	'singular_name' => _x( 'LC', 'post type singular name' ),
+	'add_new' => __( 'Add New LC' ),
+	'add_new_item' => __( 'Add New LC' ),
+	'edit_item' => __( 'Edit LC' ),
+	'new_item' => __( 'New LC' ),
+	'view_item' => __( 'View LC' ),
+	'search_items' => __( 'Search LCs' ),
+	'not_found' => __( 'No lcs found.' ),
+	'not_found_in_trash' => __( 'No lcs found in Trash.' ),
+	'menu_name' => __( 'LCs' ),
+);
+$args = array(
+	'labels' => $labels,
+	'description' => 'A LC-s main info page.',
+	'public' => true,
+	'publicly_queryable' => true,
+	'exclude_from_search' => true,
+	'show_ui' => true,
+	'menu_position' => 20,
+	'menu_icon' => null,
+	'capability_type' => post,
+	'hierarchical' => false,
+	'supports' => array('title', 'editor', 'author', 'revisions', ),
+	'taxonomies' => array(),
+	'rewrite' => array('slug' => LC, 'with_front' => true, ),
+	'query_var' => true,
+	'can_export' => true,
+	'show_in_nav_menus' => true,
+);
+register_post_type('LCs', $args);
