@@ -351,9 +351,13 @@ add_filter( 'bulk_actions-' . 'edit-applications', '__return_empty_array' );
 add_filter( 'user_has_cap', 'add_application', 100, 3 );
 function add_application($allcaps, $cap, $args)
 {
-        //print_r($cap);
+        print_r($cap);
 	//print_r($args);
 	global $current_user;
+        
+        //if(is_admin() && get_post_type()!='events') would be better to restrict everywhere except on events list
+        if(is_admin() && get_post_type()=='applications')
+            $allcaps['create_applicationss']=false; //needs to be tested for new applications
 		
 	if(get_post_type()=='applications')
 	{
