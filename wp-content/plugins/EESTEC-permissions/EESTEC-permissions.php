@@ -96,9 +96,10 @@ function edit_users($allcaps, $cap, $args)
 }
 
 
-add_action('save_post_eventss', 'link_event_to_lc');
+add_action('save_post', 'link_event_to_lc'); // the temporary organizer has to be removed! Not working :(
 function link_event_to_lc($post_id)
 {
+        global $current_user;
         if(get_post_meta($post_id,'lc', true)=='')
         {
 		$lc=get_cimyFieldValue($current_user->ID,'lc');
@@ -110,8 +111,8 @@ add_filter( 'user_has_cap', 'edit_events', 100, 3 );
 function edit_events($allcaps, $cap, $args)
 {	
 	global $current_user;
-	if(array_key_exists('manage_options',$allcaps))//user is admin
-		return $allcaps;
+	//if(array_key_exists('manage_options',$allcaps))//user is admin
+    //		return $allcaps;
         
 	if(get_post_type()=='events'){
             	//print_r($cap);
@@ -120,7 +121,7 @@ function edit_events($allcaps, $cap, $args)
                 if(current_user_has_role('lcboard'))
                 {                    
                     $allcaps['delete_published_eventss']=false;
-                    $allcaps['edit_eventss']=false;
+                    //$allcaps['edit_eventss']=false;
                     $allcaps['edit_others_eventss']=false;                    
                     $allcaps['delete_others_eventss']=false;
                     if(is_admin()) 
