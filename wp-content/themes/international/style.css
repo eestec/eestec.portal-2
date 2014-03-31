@@ -18,3 +18,65 @@ Text Domain: international
 
 @import url('bootstrap/css/bootstrap.min.css'); 
 @import url('bootstrap/css/bootstrap-theme.css'); 
+.content-area{
+	width:90%;
+	margin:auto auto;
+}
+.carousel-caption{
+	padding-left: 30px;
+	padding-right: 30px;
+}
+.entry-content{
+	overflow:hidden;
+	border-top: solid red 3px;
+	border-bottom: solid red 3px;
+	height:349px; /* This is hard coded and has to be the same hight as the slider */
+	background-color: #474f52;
+}
+.news_title{
+	margin-right: 30px;
+}
+.date{
+	float:right;
+	color: white;
+	padding-bottom: 5px;
+}
+.line_separator{
+	border-top: 1px solid white;
+}
+.visitor_type{
+	text-align: center;
+	color:white;
+	float:left;
+	width:10%;
+	height:inherit;
+
+}
+.visitor_type_buttons{
+	margin-top:90px;
+}
+.item img {
+	width:900px;
+	max-width:100%;
+	/*margin-right: auto;
+	margin-left: auto;*/
+	margin: -225px 0 0 0 ; /* only the lower side of the image is shown this is because image is not in 16:9 format; */
+	height:584px; /* This is hard coded and has to be the same hight as the slider */
+}
+.carousel{
+	width:90%;
+	float:left;
+}
+.displayed_news_text{
+	float:left;
+	width: 84%; 
+}
+.Other_top_stories{
+	padding: 4px;
+	padding-left: 5px;
+	width:15%; 
+	float:left; 
+	color:white; 
+	font-size:12px;
+	background:rgba(180,0,0,0.3);
+}

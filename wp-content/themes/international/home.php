@@ -3,7 +3,7 @@
  * The template for displaying introductory homepage
  */
 get_header(); ?>
-
+    
 	<div id="primary" class="content-area">
 		<div id="content" class="site-content" role="main">
 
@@ -33,44 +33,72 @@ get_header(); ?>
                                         </header><!-- .entry-header -->
 
 					<div class="entry-content">
-                                        
+                                        <!-- buttons on the left side of the news slider -->
                                         <div class="visitor_type">
+                                            Are you a:
+                                            <div class="visitor_type_buttons">
                                         <?php
                                         $the_query = new WP_Query( array( 'post_type' => 'page', 'post__in' => array( 3952,3957 ) ) );  //student or company page
                                         while ($the_query->have_posts()):
                                         $the_query->the_post();
                                         ?>  
-                                            <a class="<?php echo get_the_id();?>" href="<?php the_permalink();?>" title="<?php the_title()?>"><?php the_title();?></a>
+                                            <br><br><input type="button" class="<?php echo get_the_id();?>" href="<?php the_permalink();?>" title="<?php the_title()?>" value="<?php the_title();?>">
                                             <?php endwhile; ?> 
-                                        </div>
-                                            
-                                        <div class="news">
-                                            <ul class="slides">
-                                        <?php
-                                        $the_query = new WP_Query('post_type=post&posts_per_page=6');
-                                        while ($the_query->have_posts()):
-                                        $the_query->the_post();
-                                        ?>  
-                                            <li>
-                                                <?php the_post_thumbnail();?>
-                                            <a class="post <?php echo get_the_id();?>" href="<?php the_permalink();?>" title="<?php the_title()?>"><?php the_title();?></a>
-                                            <span> <?php the_date(); ?> </span>
-                                            <p><?php echo the_excerpt();?></p>
-                                            </li>
-                                        <?php endwhile; ?>
-                                            
-                                            </ul>
-                                            
-                                            <div>                                               
-                                                <h3>Other top stories</h3>
-                                                <ul>
-                                                    <li>Story1</li>
-                                                    <li>Story2</li>
-                                                    <li>Story3</li>
-                                                </ul>
                                             </div>
                                         </div>
-                                                                                    
+                                        <!-- The begining of the carousel of the news and mages -->
+                                        <div id="myCarousel" class="carousel slide">
+                                            <div class="carousel-inner">
+                                                <?php
+                                                $the_query = new WP_Query('post_type=post&posts_per_page=6');
+                                                $flag = 1;
+                                                while ($the_query->have_posts()):
+                                                $the_query->the_post();
+                                                //<!-- the first "item" of while loop is "active" -->
+                                                if($flag == 1) {
+                                                    echo '<div class="item active">';
+                                                     $flag=0;
+                                                    }
+                                                else{ echo '<div class="item">';};
+                                                     ?>    
+                                                            <!-- <?php the_post_thumbnail();?> -->
+                                                            <?php $src = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), array( 720,405 ), false, '' );?>
+                                                            <img src='<?php echo $src[0];?>'>
+                                                            <div class="carousel-caption">
+                                                                <div class"news_title">
+                                                                        <a class="post <?php echo get_the_id();?>" href="<?php the_permalink();?>" style="color:white; font-size:25px;" title="<?php the_title()?>"><?php the_title();?></a>
+                                                                        <div class="date"><?php the_date(); ?></div>
+                                                                </div>
+                                                                <div class="line_separator"></div>
+                                                                <div class="displayed_news_text"> 
+                                                                <p><?php echo the_excerpt();?></p>
+                                                                </div>
+                                                                <!-- Other stories section -->
+                                                                <div class="Other_top_stories">
+                                                                    <b>Other top stories</b>
+                                                                    <ul>
+                                                                        <li>Story1</li>
+                                                                        <li>Story2</li>
+                                                                        <li>Story3</li>
+                                                                    </ul>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                <?php endwhile; ?>
+                                            
+                                            </div>
+                                            <!-- Buttons for swiping left & right -->
+                                            <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+                                            <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
+                                        </div>
+                                        <!-- speed for the slider is edited here 4000 for 4s -->
+                                        <script>
+                                          $(document).ready(function(){
+                                            $('.carousel').carousel({
+                                              interval: 5000
+                                            });
+                                          });
+                                        </script>
 					</div>
                                         <div class="partners">
                                             
