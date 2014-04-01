@@ -32,17 +32,17 @@
 <body <?php body_class(); ?>>
 	<div id="page" class="hfeed site">
 		<!-- Main navigation -->
-			<div class="navbar row">
+			<div class="navbar navbar-static-top">
 					  <div class="navbar-inner">
-					    <div class="container">					 
+					    <div class="row container">					 
 					      <!-- Be sure to leave the brand out there if you want it shown -->
                                               <div class="span2">
                                                 <a class="brand" href="#">EESTEC logo</a>
                                               </div>                                              
 					      <!-- Everything you want hidden at 940px or less, place within here -->                                              
                                               
-					      <div class="nav-collapse collapse">
-                                              <div class="span6">
+					      <div class="nav-collapse collapse span6">
+                                              
 					        <!-- .nav, .navbar-search, .navbar-form, etc -->
 					        <?php /* Primary navigation */
 							wp_nav_menu( array(
@@ -58,9 +58,7 @@
                                              <div class="span4">
 							<?php get_search_form(); ?>
 							<?php wp_loginout(); ?>
-                                             </div>                                                  
-                                             </div>
-					 
+                                             </div>					 
 					    </div>
 					  </div>
 			</div>
