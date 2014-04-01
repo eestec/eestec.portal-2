@@ -21,7 +21,7 @@
 <!--<![endif]-->
 <head>
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
-	<meta name="viewport" content="width=device-width">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title><?php wp_title( '|', true, 'right' ); ?></title>
 	<link rel="profile" href="http://gmpg.org/xfn/11">
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
@@ -32,22 +32,17 @@
 <body <?php body_class(); ?>>
 	<div id="page" class="hfeed site">
 		<!-- Main navigation -->
-			<div class="navbar">
+			<div class="navbar row">
 					  <div class="navbar-inner">
-					    <div class="container">
-					 
-					      <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
-					      <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-					        <span class="icon-bar"></span>
-					        <span class="icon-bar"></span>
-					        <span class="icon-bar"></span>
-					      </a>
-					 
+					    <div class="container">					 
 					      <!-- Be sure to leave the brand out there if you want it shown -->
-					      <a class="brand" href="#">EESTEC logo</a>
-					 
-					      <!-- Everything you want hidden at 940px or less, place within here -->
+                                              <div class="span2">
+                                                <a class="brand" href="#">EESTEC logo</a>
+                                              </div>                                              
+					      <!-- Everything you want hidden at 940px or less, place within here -->                                              
+                                              
 					      <div class="nav-collapse collapse">
+                                              <div class="span6">
 					        <!-- .nav, .navbar-search, .navbar-form, etc -->
 					        <?php /* Primary navigation */
 							wp_nav_menu( array(
@@ -59,26 +54,20 @@
 							  'walker' => new wp_bootstrap_navwalker())
 							);
 							?>
+                                             </div>
+                                             <div class="span4">
 							<?php get_search_form(); ?>
 							<?php wp_loginout(); ?>
-					      </div>
+                                             </div>                                                  
+                                             </div>
 					 
 					    </div>
 					  </div>
 			</div>
+                
 		<!-- Main navigation end -->
 		<header id="masthead" class="site-header" role="banner">
-				<!--<a class="home-link" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"> -->
-				<!-- <h1 class="site-title"><?php bloginfo( 'name' ); ?></h1> -->
-				<!-- <h2 class="site-description"><?php bloginfo( 'description' ); ?></h2> -->
-				<!--</a> -->
-
-			
-							<!-- <h3 class="menu-toggle"><?php _e( 'Menu', 'international' ); ?></h3> -->
-							<!-- <a class="screen-reader-text skip-link" href="#content" title="<?php esc_attr_e( 'Skip to content', 'international' ); ?>"><?php _e( 'Skip to content', 'international' ); ?></a> -->
-							
-							
-						
+                    
 		</header><!-- #masthead -->
-
+                
 		<div id="main" class="site-main">
