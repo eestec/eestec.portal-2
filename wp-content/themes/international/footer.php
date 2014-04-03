@@ -10,14 +10,15 @@
  * @since International 1.0
  */
 ?>
-
 		</div><!-- #main -->
 		<footer id="colophon" class="site-footer" role="contentinfo">
-                    <div class="container row">
-                        <div class="span3">
+                    <div class="container">
+                        <div class="row">
+                        <div class="col-md-3">
                         </div>
-                        <div class="span9 offset3">
+                        <div class="col-md-9">
                         <?php get_sidebar( 'main' ); ?>
+                        </div>
                         </div>
                     </div>
 		</footer><!-- #colophon -->
