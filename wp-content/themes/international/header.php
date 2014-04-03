@@ -21,7 +21,7 @@
 <!--<![endif]-->
 <head>
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title><?php wp_title( '|', true, 'right' ); ?></title>
 	<link rel="profile" href="http://gmpg.org/xfn/11">
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
@@ -30,36 +30,37 @@
 </head>
 
 <body <?php body_class(); ?>>
-	<div id="page" class="hfeed site">
 		<!-- Main navigation -->
-			<div class="navbar navbar-static-top">
-					  <div class="navbar-inner">
-					    <div class="row container">					 
-					      <!-- Be sure to leave the brand out there if you want it shown -->
-                                              <div class="span2">
-                                                <a class="brand" href="#">EESTEC logo</a>
-                                              </div>                                              
-					      <!-- Everything you want hidden at 940px or less, place within here -->                                              
+			<div class="navbar navbar-default navbar-fixed-top">
+                                    <div class="container">
+					<a class="navbar-brand" href="#">EESTEC logo</a>                                         
+                                        
+                                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navHeaderCollapse">
+                                            <span class="sr-only">Toggle navigation</span>
+                                            <span class="icon-bar"></span>
+                                            <span class="icon-bar"></span>
+                                            <span class="icon-bar"></span>
+                                          </button>  
+                                              <div class="collapse navbar-collapse navHeaderCollapse">
                                               
-					      <div class="nav-collapse collapse span6">
-                                              
-					        <!-- .nav, .navbar-search, .navbar-form, etc -->
-					        <?php /* Primary navigation */
+					        <?php 
 							wp_nav_menu( array(
 							  'menu' => 'homepage',
 							  'depth' => 2,
 							  'container' => false,
-							  'menu_class' => 'nav',
+							  'menu_class' => 'nav navbar-nav',
 							  //Process nav menu using our custom nav walker
 							  'walker' => new wp_bootstrap_navwalker())
 							);
 							?>
-                                             </div>
-                                             <div class="span4">
-							<?php get_search_form(); ?>
-							<?php wp_loginout(); ?>
-                                             </div>					 
-					    </div>
+					    </div> 
+                                            <div class="pull-right">
+                                                <?php get_search_form(); ?>  
+                                            </div>
+                                             <div>
+							
+							<?php //wp_loginout(); ?>
+                                             </div>                                        
 					  </div>
 			</div>
                 
@@ -67,5 +68,5 @@
 		<header id="masthead" class="site-header" role="banner">
                     
 		</header><!-- #masthead -->
-                
+                <div>
 		<div id="main" class="site-main">
