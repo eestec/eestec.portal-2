@@ -3,7 +3,7 @@
  * The template for displaying introductory homepage
  */
 get_header(); ?>
-    
+<div class="container">
 	<div id="primary" class="content-area">
 		<div id="content" class="site-content" role="main">
 
@@ -31,23 +31,23 @@ get_header(); ?>
 
 					
                                         </header><!-- .entry-header -->
-
-					<div class="entry-content">
+					               <div class="row" id="frontpage-slider-theme">
                                         <!-- buttons on the left side of the news slider -->
-                                        <div class="visitor_type">
+                                        <div class="col-md-2">
                                             Are you a:
                                             <div class="visitor_type_buttons">
-                                        <?php
-                                        $the_query = new WP_Query( array( 'post_type' => 'page', 'post__in' => array( 3952,3957 ) ) );  //student or company page
-                                        while ($the_query->have_posts()):
-                                        $the_query->the_post();
-                                        ?>  
+                                            <?php
+                                            $the_query = new WP_Query( array( 'post_type' => 'page', 'post__in' => array( 3952,3957 ) ) );  //student or company page
+                                            while ($the_query->have_posts()):
+                                            $the_query->the_post();
+                                            ?>  
                                             <br><br><input type="button" class="<?php echo get_the_id();?>" href="<?php the_permalink();?>" title="<?php the_title()?>" value="<?php the_title();?>">
                                             <?php endwhile; ?> 
                                             </div>
                                         </div>
                                         <!-- The begining of the carousel of the news and mages -->
-                                        <div id="myCarousel" class="carousel slide">
+                                        <div class="col-md-10" id="slider">
+                                            <div id="myCarousel" class="carousel slide">
                                             <div class="carousel-inner">
                                                 <?php
                                                 $the_query = new WP_Query('post_type=post&posts_per_page=6');
@@ -67,20 +67,11 @@ get_header(); ?>
                                                             <div class="carousel-caption">
                                                                 <div class"news_title">
                                                                         <a class="post <?php echo get_the_id();?>" href="<?php the_permalink();?>" style="color:white; font-size:25px;" title="<?php the_title()?>"><?php the_title();?></a>
-                                                                        <div class="date"><?php the_date(); ?></div>
+                                                                        <div class="date_slider"><?php the_date(); ?></div>
                                                                 </div>
                                                                 <div class="line_separator"></div>
                                                                 <div class="displayed_news_text"> 
                                                                 <p><?php echo the_excerpt();?></p>
-                                                                </div>
-                                                                <!-- Other stories section -->
-                                                                <div class="Other_top_stories">
-                                                                    <b>Other top stories</b>
-                                                                    <ul>
-                                                                        <li>Story1</li>
-                                                                        <li>Story2</li>
-                                                                        <li>Story3</li>
-                                                                    </ul>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -90,7 +81,9 @@ get_header(); ?>
                                             <!-- Buttons for swiping left & right -->
                                             <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
                                             <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
-                                        </div>
+                                            </div>
+                                    </div>
+
                                         <!-- speed for the slider is edited here 4000 for 4s -->
                                         <script>
                                           $(document).ready(function(){
@@ -109,6 +102,6 @@ get_header(); ?>
 
 		</div><!-- #content -->
 	</div><!-- #primary -->
-
+</div>
 <?php //get_sidebar(); ?>
 <?php get_footer(); ?>
