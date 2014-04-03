@@ -53,10 +53,9 @@
 							  'walker' => new wp_bootstrap_navwalker())
 							);
 							?>
+                                                  <?php get_search_form(); ?>  
 					    </div> 
-                                            <div class="col-sm-3 col-md-3 pull-right">
-                                                <?php get_search_form(); ?>  
-                                            </div>
+
                                              <div>
 							
 							<?php //wp_loginout(); ?>
