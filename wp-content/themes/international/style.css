@@ -18,3 +18,21 @@ Text Domain: international
 
 @import url('bootstrap/css/bootstrap.min.css'); 
 @import url('bootstrap/css/bootstrap-theme.css'); 
+body {margin-top:120px;}
+.entry-content{
+	background-color: #474f52;
+}
+.line_separator{
+	border-top: 1px solid white;
+}
+.item {
+	min-height:384px; /* This is hard coded and has to be the same hight as the slider */
+}
+#frontpage-slider-theme{
+	border-bottom: solid red 3px;
+	border-top: solid red 3px;
+}
+#frontpage-slider-theme{
+	background-color: #444e50;
+}
+
