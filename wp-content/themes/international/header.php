@@ -33,7 +33,7 @@
 		<!-- Main navigation -->
 			<div class="navbar navbar-default navbar-fixed-top">
                                     <div class="container">
-					<a class="navbar-brand" href="#">EESTEC logo</a>                                         
+                                        <a class="navbar-brand" href="<?php echo home_url(); ?>"><img src="<?php echo get_template_directory_uri(); ?>/images/header_logo.png" title="home" alt="EESTEC" /></a>                                         
                                         
                                         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navHeaderCollapse">
                                             <span class="sr-only">Toggle navigation</span>
@@ -54,7 +54,7 @@
 							);
 							?>
 					    </div> 
-                                            <div class="pull-right">
+                                            <div class="col-sm-3 col-md-3 pull-right">
                                                 <?php get_search_form(); ?>  
                                             </div>
                                              <div>
@@ -68,5 +68,4 @@
 		<header id="masthead" class="site-header" role="banner">
                     
 		</header><!-- #masthead -->
-                <div>
 		<div id="main" class="site-main">
