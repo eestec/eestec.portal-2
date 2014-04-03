@@ -13,10 +13,10 @@
 
 		</div><!-- #main -->
 		<footer id="colophon" class="site-footer" role="contentinfo">
-                    <div class="row">
+                    <div class="container row">
                         <div class="span3">
                         </div>
-                        <div class="span9">
+                        <div class="span9 offset3">
                         <?php get_sidebar( 'main' ); ?>
                         </div>
                     </div>
