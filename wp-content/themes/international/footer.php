@@ -13,13 +13,13 @@
 
 		</div><!-- #main -->
 		<footer id="colophon" class="site-footer" role="contentinfo">
-			<?php get_sidebar( 'main' ); ?>
-                    
-                    <!--
-			<div class="site-info">
-				<?php do_action( 'international_credits' ); ?>
-			</div><!-- .site-info -->
-                   
+                    <div class="container row">
+                        <div class="span3">
+                        </div>
+                        <div class="span9 offset3">
+                        <?php get_sidebar( 'main' ); ?>
+                        </div>
+                    </div>
 		</footer><!-- #colophon -->
 	</div><!-- #page -->
 	<?php wp_footer(); ?>
