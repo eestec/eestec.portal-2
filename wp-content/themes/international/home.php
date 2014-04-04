@@ -13,6 +13,8 @@ get_header(); ?>
 				<article id="homepage" >
 					<header class="entry-header">
                                             
+                                            <div class="row">
+                                            <div class="col-md-2">
                                             <br>Like our idea?
                                             <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
                                             <input type="hidden" name="cmd" value="_donations">
@@ -29,7 +31,10 @@ get_header(); ?>
                                             <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
                                             </form>
 
-					
+                                            </div>
+                                            <div class="col-md-3 pull-right">
+                                                <?php eemail_show(); ?>
+                                            </div>
                                         </header><!-- .entry-header -->
 					               <div class="row" id="frontpage-slider-theme">
                                         <!-- buttons on the left side of the news slider -->
