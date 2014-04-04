@@ -44,8 +44,6 @@ define('EESTEC_PERMISSIONS_PLUGIN_URL', plugin_dir_url( __FILE__ ));
 //automate locking meta of lc on events
 //store organizer lc on the event
 //restrict user editing to same lc
-//correct the user confirmation plugin to support can user edit (confirming only editable users)
-//remap all events
 
 function get_current_user_roles(){
 	global $current_user;
@@ -111,8 +109,8 @@ add_filter( 'user_has_cap', 'edit_events', 100, 3 );
 function edit_events($allcaps, $cap, $args)
 {	
 	global $current_user;
-	//if(array_key_exists('manage_options',$allcaps))//user is admin
-    //		return $allcaps;
+        if(array_key_exists('manage_options',$allcaps))//user is admin
+		return $allcaps;
         
 	if(get_post_type()=='events'){
             	//print_r($cap);
@@ -150,7 +148,6 @@ function remove_menus(){
         remove_menu_page( 'tools.php' );                  //Tools
         remove_menu_page( 'rs-category-restrictions_t' ); //Removing role scoper menu
         remove_menu_page( 'rs-general_roles' );           // role scoper menu
-        remove_menu_page( 'tools.php' );                  //Tools
         remove_submenu_page( 'users.php','rs-groups' );   // removing role scoper option from users menu
     }    
 }

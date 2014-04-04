@@ -50,22 +50,22 @@ get_header(); ?>
                                             <div id="myCarousel" class="carousel slide">
                                             <div class="carousel-inner">
                                                 <?php
-                                                $the_query = new WP_Query('post_type=post&posts_per_page=6');
+                                                $the_query = new WP_Query('post_type=post&posts_per_page=6&category_name=homepage');
                                                 $flag = 1;
                                                 while ($the_query->have_posts()):
                                                 $the_query->the_post();
+                                                
                                                 //<!-- the first "item" of while loop is "active" -->
                                                 if($flag == 1) {
                                                     echo '<div class="item active">';
                                                      $flag=0;
                                                     }
                                                 else{ echo '<div class="item">';};
-                                                     ?>    
-                                                            <!-- <?php the_post_thumbnail();?> -->
-                                                            <?php $src = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), array( 720,405 ), false, '' );?>
+                                                     ?> 
+                                                            <?php $src = wp_get_attachment_image_src( get_post_thumbnail_id(get_the_ID()), array( 720,405 ), false, '' );?>
                                                             <img src='<?php echo $src[0];?>'>
                                                             <div class="carousel-caption">
-                                                                <div class"news_title">
+                                                                <div class="news_title">
                                                                         <a class="post <?php echo get_the_id();?>" href="<?php the_permalink();?>" style="color:white; font-size:25px;" title="<?php the_title()?>"><?php the_title();?></a>
                                                                         <div class="date_slider"><?php the_date(); ?></div>
                                                                 </div>
@@ -93,8 +93,11 @@ get_header(); ?>
                                           });
                                         </script>
 					</div>
-                                        <div class="partners">
-                                            
+            
+                                        <div class="row partners">
+                                             <?php 
+                                             echo get_post_field('post_content', 4031);  //temporary hack for displaying the sponsors. HTML code writen on the "Home" page.                                             
+                                             ?>
                                         </div>
                                         <!-- .entry-content -->
 				</article><!-- #post -->
