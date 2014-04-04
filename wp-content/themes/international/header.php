@@ -53,13 +53,28 @@
 							  'walker' => new wp_bootstrap_navwalker())
 							);
 							?>
-                                                  <?php get_search_form(); ?>  
-					    </div> 
-
-                                             <div>
-							
-							<?php //wp_loginout(); ?>
-                                             </div>                                        
+                                                  <div class="row">
+                                                      
+                                                  <ul class="nav navbar-nav navbar-right" title="Login/register">
+                                                    <li class="dropdown">
+                                                      <a class="dropdown-toggle" href="#" data-toggle="dropdown">Sign In <strong class="caret"></strong></a>
+                                                      <div class="dropdown-menu" style="padding: 15px; padding-bottom: 0px;">
+                                                         <?php wp_login_form( $args );
+                                                         if ( !is_user_logged_in()):?>
+                                                          <br />
+                                                          <b>New member?</b>
+                                                          <br />
+                                                         <?php wp_register('','');endif; ?>
+                                                      </div>
+                                                    </li>
+                                                  </ul>                                                      
+                                                  
+                                                  <div class="col-sm-3 pull-right">
+                                                  <?php get_search_form(); ?>
+                                                  </div>
+                                                      
+                                                  </div>
+					    </div>                              
 					  </div>
 			</div>
                 
