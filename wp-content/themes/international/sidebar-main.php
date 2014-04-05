@@ -12,20 +12,20 @@
 if ( is_active_sidebar( 'sidebar-1' ) ) : ?>
 	<div id="secondary" class="sidebar-container" role="complementary">
 		<div class="row widget-area">                 
-                    <div class="col-md-5">
+                    <div class="col-md-7">
                         <h3>Sitemap:</h3>
                                                 <?php /* Footer sitemap */
 							wp_nav_menu( array(
 							  'menu' => 'sitemap',
 							  'container' => false,
-							  'menu_class' => 'nav',
+							  'menu_class' => 'list-unstyled',
                                                           )
 							);
 							?>
                     </div>                    
-                     <div class="col-md-4">
+                     <div class="col-md-5">
 			<?php dynamic_sidebar( 'sidebar-1' ); ?>
                      </div>
-		</div><!-- .widget-area -->
+		</div><!-- .widget-area -->                
 	</div><!-- #secondary -->
 <?php endif; ?>

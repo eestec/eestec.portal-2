@@ -29,10 +29,31 @@ body {margin-top:120px;}
 	min-height:384px; /* This is hard coded and has to be the same hight as the slider */
 }
 #frontpage-slider-theme{
-	border-bottom: solid red 3px;
-	border-top: solid red 3px;
+	border-bottom: solid #af2b1d 5px;
+	border-top: solid #af2b1d 3px;
+        margin: 10px 0px;
 }
 #frontpage-slider-theme{
 	background-color: #444e50;
 }
 
+footer{
+    background-image:url('images/footer_background.png');
+    color:white;    
+    border-top: solid #af2b1d 3px;
+    margin-top: 20px;
+}
+
+body{
+    background-image:url('images/background.png');
+}
+
+.credits{
+    background-image:url('images/credits_background.png');
+    text-align: center;
+}
+
+.partners > div
+{
+    margin: 10px 0px;
+}
