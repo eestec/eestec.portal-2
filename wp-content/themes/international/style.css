@@ -17,7 +17,7 @@ Text Domain: international
 /* linking to bootstrap style files*/
 
 @import url('bootstrap/css/bootstrap.min.css'); 
-@import url('bootstrap/css/bootstrap-theme.css'); 
+/*@import url('bootstrap/css/bootstrap-theme.css');*/ 
 body {margin-top:120px;}
 .entry-content{
 	background-color: #474f52;
