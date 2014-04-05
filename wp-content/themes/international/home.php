@@ -98,11 +98,15 @@ get_header(); ?>
                                           });
                                         </script>
 					</div>
-            
-                                        <div class="row partners">
+                                        
+                                        <div class="partners">    
+                                        Our partners:    
+                                        <div class="row">
+                                            
                                              <?php 
                                              echo get_post_field('post_content', 4031);  //temporary hack for displaying the sponsors. HTML code writen on the "Home" page.                                             
                                              ?>
+                                        </div>
                                         </div>
                                         <!-- .entry-content -->
 				</article><!-- #post -->
