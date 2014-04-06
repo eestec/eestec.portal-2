@@ -456,6 +456,12 @@ function eemail_show()
 	include_once("widget/widget.php");
 }
 
+function eemail_bootstrap_show() 
+{
+	global $wpdb, $wp_version;
+	include_once("widget/bootstrap_widget.php");
+}
+
 function eemail_widget($args) 
 {
 	if(is_home() && get_option('eemail_on_homepage') == 'YES') { $display = "show";	}
