@@ -28,6 +28,10 @@ body{
     background-image:url('../../images/background.png');
 }
 
+.navbar.navbar-default{
+    background-color: #fdfdfd;
+}
+
 .credits{
     background-image:url('../../images/credits_background.png');
     text-align: center;
