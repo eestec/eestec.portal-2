@@ -14,7 +14,7 @@ get_header(); ?>
 					<header class="entry-header">
                                             
                                             <div class="row">
-                                            <div class="col-md-2">
+                                            <div class="col-md-2 pull-left">
                                             <br>Like our idea?
                                             <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
                                             <input type="hidden" name="cmd" value="_donations">
@@ -26,7 +26,7 @@ get_header(); ?>
                                             <input type="hidden" name="currency_code" value="EUR">
                                             <input type="hidden" name="bn" value="PP-DonationsBF:btn_donateCC_LG.gif:NonHostedGuest">
                                             
-                                                <input type="button" class="btn btn-default" name="submit" value="Donate">
+                                                <input type="button" class="btn btn-red" name="submit" value="Donate">
                                             
                                             <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
                                             </form>

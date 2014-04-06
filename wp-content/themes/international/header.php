@@ -55,9 +55,11 @@
 							?>
                                                   <div class="row">
                                                       
-                                                  <ul class="nav navbar-nav navbar-right" title="Login/register">
+                                                  <ul class="nav navbar-nav navbar-right signin" title="Login/register">
                                                     <li class="dropdown">
-                                                      <a class="dropdown-toggle" href="#" data-toggle="dropdown">Sign In <strong class="caret"></strong></a>
+                                                      <a class="dropdown-toggle" href="#" data-toggle="dropdown">
+                                                          <div class="visible-xs">Sign In</div>
+                                                      </a>
                                                       <div class="dropdown-menu" style="padding: 15px; padding-bottom: 0px;">
                                                          <?php wp_login_form( $args );
                                                          if ( !is_user_logged_in()):?>

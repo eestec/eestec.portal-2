@@ -76,10 +76,10 @@ function international_setup() {
 		'aside', 'audio', 'chat', 'gallery', 'image', 'link', 'quote', 'status', 'video'
 	) );
         
-        register_nav_menu( 'default', 'Default', 'international' );
+        //register_nav_menu( 'default', 'Default', 'international' );
         register_nav_menu( 'homepage', 'Homepage Menu', 'international' );
-        register_nav_menu( 'student', 'Student Menu', 'international' );
-        register_nav_menu( 'company', 'Company Menu', 'international' );        
+        //register_nav_menu( 'student', 'Student Menu', 'international' );
+        //register_nav_menu( 'company', 'Company Menu', 'international' );        
         register_nav_menu( 'sitemap', 'Sitemap', 'international' );
 
 	/*
