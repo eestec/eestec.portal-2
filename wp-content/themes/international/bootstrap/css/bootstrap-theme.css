@@ -46,3 +46,10 @@ body{
 {
     padding: 0px 15px;
 }
+
+.sitemap li{
+    list-style: none;
+}
+.sitemap ul ul{padding-left: 0px;}
+.sitemap > ul > li{padding-left: 15px;}
+.sitemap a{color: white;}

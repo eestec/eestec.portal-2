@@ -12,7 +12,7 @@
 if ( is_active_sidebar( 'sidebar-1' ) ) : ?>
 	<div id="secondary" class="sidebar-container" role="complementary">
 		<div class="row widget-area">                 
-                    <div class="col-md-7">
+                    <div class="col-md-7 sitemap">
                         <h3>Sitemap:</h3>
                                                 <?php /* Footer sitemap */
 							wp_nav_menu( array(

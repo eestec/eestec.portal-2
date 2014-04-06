@@ -26,14 +26,14 @@ get_header(); ?>
                                             <input type="hidden" name="currency_code" value="EUR">
                                             <input type="hidden" name="bn" value="PP-DonationsBF:btn_donateCC_LG.gif:NonHostedGuest">
                                             
-                                                <input type="button" class="btn btn-default btn-lg" name="submit" value="Donate">
+                                                <input type="button" class="btn btn-default" name="submit" value="Donate">
                                             
                                             <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
                                             </form>
 
                                             </div>
                                             <div class="col-md-3 pull-right">
-                                                <?php eemail_show(); ?>
+                                                <?php eemail_bootstrap_show(); ?>
                                             </div>
                                         </header><!-- .entry-header -->
 					               <div class="row" id="frontpage-slider-theme">
@@ -93,7 +93,7 @@ get_header(); ?>
                                         <script>
                                           $(document).ready(function(){
                                             $('.carousel').carousel({
-                                              interval: 5000
+                                              interval: 50000
                                             });
                                           });
                                         </script>
