@@ -37,3 +37,12 @@ body{
 {
     margin: 10px 0px;
 }
+
+#menu-sitemap-1 > li{
+    float:left;
+}
+
+.navbar-brand
+{
+    padding: 0px 15px;
+}

@@ -33,7 +33,7 @@
 		<!-- Main navigation -->
 			<div class="navbar navbar-default navbar-fixed-top">
                                     <div class="container">
-                                        <a class="navbar-left" href="<?php echo home_url(); ?>"><img src="<?php echo get_template_directory_uri(); ?>/images/header_logo.png" title="home" alt="EESTEC" /></a>                                         
+                                        <a class="navbar-brand" href="<?php echo home_url(); ?>"><img src="<?php echo get_template_directory_uri(); ?>/images/header_logo.png" title="home" alt="EESTEC" /></a>                                         
                                         
                                         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navHeaderCollapse">
                                             <span class="sr-only">Toggle navigation</span>
