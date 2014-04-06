@@ -71,7 +71,7 @@
                                                     </li>
                                                   </ul>                                                      
                                                   
-                                                  <div class="col-sm-3 pull-right">
+                                                  <div class="nav navbar-nav col-sm-3 pull-right">
                                                   <?php get_search_form(); ?>
                                                   </div>
                                                       
