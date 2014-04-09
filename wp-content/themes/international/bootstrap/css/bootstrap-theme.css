@@ -1,4 +1,4 @@
-body {margin-top:70px;}
+body {margin-top:50px;}
 .entry-content{
 	background-color: #474f52;
 }
@@ -11,7 +11,7 @@ body {margin-top:70px;}
 #frontpage-slider-theme{
 	border-bottom: solid #af2b1d 5px;
 	border-top: solid #af2b1d 3px;
-        margin: 10px 0px 30px 0px;
+        margin: 10px 0px 0px 0px;
 }
 #frontpage-slider-theme{
 	background-color: #444e50;
@@ -21,7 +21,6 @@ footer{
     background-image:url('../../images/footer_background.png');
     color:white;    
     border-top: solid #af2b1d 3px;
-    margin-top: 20px;
 }
 
 body{
@@ -35,6 +34,11 @@ body{
 .credits{
     background-image:url('../../images/credits_background.png');
     text-align: center;
+}
+
+.partners{
+    padding: 30px 0px;
+    background-color: white;
 }
 
 .partners div div
