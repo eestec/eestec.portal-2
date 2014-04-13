@@ -84,6 +84,7 @@ function international_setup() {
 	 * "standard" posts and pages.
 	 */
 	add_theme_support( 'post-thumbnails' );
+        add_image_size('home-slider',940,380,true); 
 
 	// This theme uses its own gallery styles.
 	add_filter( 'use_default_gallery_style', '__return_false' );
