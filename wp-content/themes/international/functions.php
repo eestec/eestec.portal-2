@@ -66,15 +66,12 @@ function international_setup() {
 
 	// Adds RSS feed links to <head> for posts and comments.
 	add_theme_support( 'automatic-feed-links' );
-
-	/*
-	 * This theme supports all available post formats by default.
-	 * See http://codex.wordpress.org/Post_Formats
-	 */
         
+        /*
 	add_theme_support( 'post-formats', array(
 		'aside', 'audio', 'chat', 'gallery', 'image', 'link', 'quote', 'status', 'video'
 	) );
+         */
         
         //register_nav_menu( 'default', 'Default', 'international' );
         register_nav_menu( 'homepage', 'Homepage Menu', 'international' );
@@ -87,12 +84,19 @@ function international_setup() {
 	 * "standard" posts and pages.
 	 */
 	add_theme_support( 'post-thumbnails' );
-	set_post_thumbnail_size( 604, 270, true );
 
 	// This theme uses its own gallery styles.
 	add_filter( 'use_default_gallery_style', '__return_false' );
 }
 add_action( 'after_setup_theme', 'international_setup' );
+
+
+/* the bootstrap is taking care of our thumbnail sizing so we have to remove the atributes */
+add_filter( 'post_thumbnail_html', 'remove_width_attribute', 10 );
+function remove_width_attribute( $html ) {
+   $html = preg_replace( '/(width|height)="\d*"\s/', "", $html );
+   return $html;
+}
 
 /**
  * Enqueues scripts and styles for front end.
@@ -443,7 +447,10 @@ add_action( 'customize_register', 'international_customize_register' );
 // Replaces the excerpt "more" text by a link
 function new_excerpt_more($more) {
        global $post;
+       if(is_home())
 	return '<a class="moretag" href="'. get_permalink($post->ID) . '"> ...More>></a>';
+       else
+           return'...';
 }
 add_filter('excerpt_more', 'new_excerpt_more');
 

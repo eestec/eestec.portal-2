@@ -10,6 +10,7 @@
  * @since International 1.0
  */
 ?>
+                </div><!-- row -->
 		</div><!-- #main -->
 		<footer id="colophon" class="site-footer" role="contentinfo">
                     <div class="container">

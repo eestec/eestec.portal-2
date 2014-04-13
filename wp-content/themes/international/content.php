@@ -9,7 +9,67 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<header class="entry-header">
+	
+    <?php if(!is_single()):?>
+        <header class="entry-meta row">
+                <h2 class="entry-title col-md-10">
+			<a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a>
+		</h2>
+        
+		<div class="entry-date col-md-2">
+                    <?php international_entry_date();?>
+		</div>
+            
+	</header>
+
+        
+
+	<?php if ( !is_search() ) : // Only display Content for Search ?>
+        
+	<div class="entry-summary row">
+            <div class="excerpt col-md-8">
+                <?php the_excerpt(); ?>
+            </div>
+		
+            <?php if ( has_post_thumbnail() && ! post_password_required() ) : ?>
+		<div class="entry-thumbnail col-md-4">
+			<?php the_post_thumbnail(array('316','205'), array('class'=> "img-responsive",)); ?>
+		</div>
+		<?php endif; ?>
+	</div><!-- .entry-summary -->
+        
+	<?php else : ?>
+	<div class="entry-content">
+		<?php the_content('...'); ?>
+		<?php wp_link_pages( array( 'before' => '<div class="page-links"><span class="page-links-title">' . __( 'Pages:', 'international' ) . '</span>', 'after' => '</div>', 'link_before' => '<span>', 'link_after' => '</span>' ) ); ?>
+	</div><!-- .entry-content -->
+	<?php endif; ?>
+        
+
+	<footer class="entry-meta row">
+            <div class="categories col-md-10">
+            Categories:
+            <?php 	
+            $categories_list = get_the_category_list(', ');
+                if ( $categories_list ) {
+                        echo '<span class="categories-links">' . $categories_list . '</span>';
+                } ?>
+            </div>
+            <div class="more col-md-2">
+                <a href="<?php the_permalink()?>"> More >></a>             
+            </div>
+            
+		<?php if ( comments_open() && ! is_single() ) : ?>
+			<div class="comments-link">
+				<?php comments_popup_link( '<span class="leave-reply">' . __( 'Leave a comment', 'international' ) . '</span>', __( 'One comment so far', 'international' ), __( 'View all % comments', 'international' ) ); ?>
+			</div><!-- .comments-link -->
+		<?php endif; // comments_open() ?>
+
+	</footer>
+        
+    <?php else:?>
+    
+      <header class="entry-header">                
 		<?php if ( has_post_thumbnail() && ! post_password_required() ) : ?>
 		<div class="entry-thumbnail">
 			<?php the_post_thumbnail(); ?>
@@ -40,6 +100,7 @@
 		<?php wp_link_pages( array( 'before' => '<div class="page-links"><span class="page-links-title">' . __( 'Pages:', 'international' ) . '</span>', 'after' => '</div>', 'link_before' => '<span>', 'link_after' => '</span>' ) ); ?>
 	</div><!-- .entry-content -->
 	<?php endif; ?>
+        
 
 	<footer class="entry-meta">
 		<?php if ( comments_open() && ! is_single() ) : ?>
@@ -52,4 +113,5 @@
 			<?php get_template_part( 'author-bio' ); ?>
 		<?php endif; ?>
 	</footer><!-- .entry-meta -->
+           <?php endif;?>
 </article><!-- #post -->

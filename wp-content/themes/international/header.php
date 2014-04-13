@@ -84,4 +84,5 @@
 		<header id="masthead" class="site-header" role="banner">
                     
 		</header><!-- #masthead -->
-		<div id="main" class="site-main">
+		<div id="main" class="container site-main">
+                    <div class="row">

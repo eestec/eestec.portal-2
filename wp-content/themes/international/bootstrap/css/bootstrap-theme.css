@@ -1,5 +1,5 @@
 body {margin-top:50px;}
-.entry-content{
+#homepage.entry-content{
 	background-color: #474f52;
 }
 .line_separator{
@@ -17,7 +17,7 @@ body {margin-top:50px;}
 	background-color: #444e50;
 }
 
-footer{
+footer.site-footer{
     background-image:url('../../images/footer_background.png');
     color:white;    
     border-top: solid #af2b1d 3px;
@@ -89,6 +89,25 @@ form.search{
     padding: 25px;
 }
 
+
+
+.content-area{
+    border: 1px solid #a2a0a0;
+    background-image: url('../../images/content_background.png');
+}
+
+article.post{margin-top: 3em;}
+
+header.entry-meta h2{margin:0px;font-size: 12pt; color:#af2b1d;}
+header.entry-meta{
+    border-bottom: 1px solid #af2b1d;
+    font-size: 12pt;
+}
+.entry-date{text-align: right;}
+
+#primary{
+    margin-bottom: 3em;
+}
 
 .btn-red { 
   color: #FFFFFF; 

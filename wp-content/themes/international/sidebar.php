@@ -10,7 +10,7 @@
  */
 
 if ( is_active_sidebar( 'sidebar-2' ) ) : ?>
-	<div id="tertiary" class="sidebar-container" role="complementary">
+	<div id="tertiary" class="sidebar-container col-md-3" role="complementary">
 		<div class="sidebar-inner">
 			<div class="widget-area">
 				<?php dynamic_sidebar( 'sidebar-2' ); ?>
