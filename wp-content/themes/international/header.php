@@ -57,16 +57,27 @@
                                                       
                                                   <ul class="nav navbar-nav navbar-right signin" title="Login/register">
                                                     <li class="dropdown">
-                                                      <a class="dropdown-toggle" href="#" data-toggle="dropdown">
-                                                          <div class="visible-xs">Sign In</div>
+                                                        <a class="dropdown-toggle" href="#" data-toggle="dropdown" title="Sign In / Out">
+                                                          <div class="visible-xs">Sign In/Out</div>
                                                       </a>
-                                                      <div class="dropdown-menu" style="padding: 15px; padding-bottom: 0px;">
+                                                      <div class="dropdown-menu" style="padding: 15px; padding-bottom: 10px;">
+                                                      <?php if (is_user_logged_in()):                                                          
+                                                          $current_user = wp_get_current_user();
+                                                      
+                                                          echo '<p>Hi '.$current_user->first_name.' '.$current_user->last_name.'!</p>';
+                                                          echo '<p>You are logged in as <a href="'.get_edit_user_link($current_user->ID).'">'
+                                                          . $current_user->user_login.'</a></p>';
+                                                          
+                                                      ?>
+                                                          <a href="<?php echo wp_logout_url(site_url()); ?>">Log out</a>
+                                                      <?php else: ?>
                                                          <?php wp_login_form( $args );
                                                          if ( !is_user_logged_in()):?>
                                                           <br />
                                                           <b>New member?</b>
                                                           <br />
                                                          <?php wp_register('','');endif; ?>
+                                                        <?php endif; ?>
                                                       </div>
                                                     </li>
                                                   </ul>                                                      
