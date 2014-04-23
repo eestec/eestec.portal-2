@@ -80,6 +80,11 @@ body{
 
 form.search{
     margin: 0px;
+    padding: 0px;
+}
+
+.col-md-3.search{
+    padding: 0px;
 }
 
 .signin a.dropdown-toggle{

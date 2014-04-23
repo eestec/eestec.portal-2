@@ -33,6 +33,7 @@
 		<!-- Main navigation -->
 			<div class="navbar navbar-default navbar-fixed-top">
                                     <div class="container">
+                                        <div class="row">
                                         <a class="navbar-brand" href="<?php echo home_url(); ?>"><img src="<?php echo get_template_directory_uri(); ?>/images/header_logo.png" title="home" alt="EESTEC" /></a>                                         
                                         
                                         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navHeaderCollapse">
@@ -53,9 +54,12 @@
 							  'walker' => new wp_bootstrap_navwalker())
 							);
 							?>
-                                                  <div class="row">
+                                                  <div class="col-md-3 pull-right search">
+                                                  <div class="nav navbar-nav col-md-10 col-sm-10  pull-left">
+                                                  <?php get_search_form(); ?>
+                                                  </div>
                                                       
-                                                  <ul class="nav navbar-nav navbar-right signin" title="Login/register">
+                                                  <ul class="col-md-2 nav navbar-nav navbar-right signin" title="Login/register">
                                                     <li class="dropdown">
                                                         <a class="dropdown-toggle" href="#" data-toggle="dropdown" title="Sign In / Out">
                                                           <div class="visible-xs">Sign In/Out</div>
@@ -82,12 +86,11 @@
                                                     </li>
                                                   </ul>                                                      
                                                   
-                                                  <div class="nav navbar-nav col-sm-3 pull-right">
-                                                  <?php get_search_form(); ?>
-                                                  </div>
+
                                                       
                                                   </div>
-					    </div>                              
+					    </div> 
+                                        </div>
 					  </div>
 			</div>
                 
