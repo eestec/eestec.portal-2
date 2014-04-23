@@ -178,7 +178,7 @@ function international_widgets_init() {
 		'name'          => 'Secondary Widget Area',
 		'id'            => 'sidebar-2',
 		'description'   => __( 'Appears on posts and pages in the sidebar.', 'international' ),
-		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+		'before_widget' => '<aside id="%1$s" class="widget %2$s col-sm-4 col-md-12">',
 		'after_widget'  => '</aside>',
 		'before_title'  => '<h3 class="widget-title">',
 		'after_title'   => '</h3>',
