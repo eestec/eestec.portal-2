@@ -41,11 +41,18 @@ get_header(); ?>
                                             Are you a:
                                             <div class="visitor_type_buttons">
                                             <?php
+                                            $button_change_flag=0;
                                             $the_query = new WP_Query( array( 'post_type' => 'page', 'post__in' => array( 3952,3957 ) ) );  //student or company page
                                             while ($the_query->have_posts()):
                                             $the_query->the_post();
+                                            $button_change_flag++;
                                             ?>  
-                                            <br><br><input type="button" class="<?php echo get_the_id();?>" href="<?php the_permalink();?>" title="<?php the_title()?>" value="<?php the_title();?>">
+                                            <br><br><a class="<?php echo get_the_id();?>" href="<?php the_permalink();?>" title="<?php the_title()?>" value="<?php the_title();?>">
+                                            <?php 
+                                                if($button_change_flag==1){echo"<img class='visitor_type_icon' src='".get_template_directory_uri()."/images/CompanyIcon.png'>";}
+                                                if($button_change_flag==2){echo"<img class='visitor_type_icon' src='".get_template_directory_uri()."/images/Student_btn_icon.png'>";} 
+                                            ?>
+                                            </a>
                                             <?php endwhile; ?> 
                                             </div>
                                         </div>
